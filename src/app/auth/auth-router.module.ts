@@ -7,7 +7,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   imports: [
     RouterModule.forChild([
       {
-        path: 'sign-in/:id',
+        path: 'sign-in',
         component: SignInComponent
       },
       {

@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 import { NoDataComponent } from './no-data/no-data.component';
 
 @NgModule({
   imports: [
     RouterModule.forRoot([
-/*      {
-        path: '',
-        pathMatch: 'full',
-        component: AppComponent
-      },*/
+      {
+        path: 'auth',
+        loadChildren: 'app/auth/auth.module#AuthModule'
+      },
       {
         path: '**',
         redirectTo: '/404'
