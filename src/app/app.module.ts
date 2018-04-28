@@ -4,9 +4,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { NoDataComponent } from './no-data/no-data.component';
 import { AuthModule } from './auth/auth.module';
+import { CoreModule } from './core/core.module';
 
+import { NoDataComponent } from './no-data/no-data.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     BrowserModule,
     AuthModule,
+    CoreModule,
     AppRoutingModule,
   ],
   providers: [],

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'odds-sign-in',
@@ -9,12 +10,17 @@ import { ActivatedRoute, Router} from '@angular/router';
 export class SignInComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-              private router: Router) { }
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       console.log('params', params);
     });
+  }
+
+  public login() {
+    this.authService.login();
+    console.log(this.authService.getUser());
   }
 
 }
