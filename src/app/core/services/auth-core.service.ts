@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SessionService } from './sessionService';
 
 @Injectable()
-export class AuthService {
+export class AuthCoreService {
 
   constructor() { }
 

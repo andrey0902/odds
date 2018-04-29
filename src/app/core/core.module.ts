@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthService } from './services/auth.service';
+import { AuthCoreService } from './services/auth-core.service';
 import { AuthGuard } from './guard/auth-guard.service';
 
 @NgModule({
@@ -9,7 +9,7 @@ import { AuthGuard } from './guard/auth-guard.service';
   ],
   declarations: [],
   providers: [
-    AuthService,
+    AuthCoreService,
     AuthGuard
   ]
 })
