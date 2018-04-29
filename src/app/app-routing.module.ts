@@ -6,38 +6,60 @@ import { MainModule } from './main/main.module';
 import { ProfileModule } from './profile/profile.module';
 import { FaqModule } from './faq/faq.module';
 import { PaymentModule } from './payment/payment.module';
+import { AuthGuard } from './core/guard/auth-guard.service';
 
 @NgModule({
   imports: [
     RouterModule.forRoot([
       {
         path: 'auth',
-        loadChildren: 'app/auth/auth.module#AuthModule'
+        loadChildren: 'app/auth/auth.module#AuthModule',
+        canActivate: [
+          AuthGuard
+        ]
       },
       {
         path: 'membership',
-        loadChildren: './membership/membership.module#MembershipModule'
+        loadChildren: './membership/membership.module#MembershipModule',
+        canActivate: [
+          AuthGuard
+        ]
       },
       {
         path: 'profile',
-        loadChildren: './profile/profile.module#ProfileModule'
+        loadChildren: './profile/profile.module#ProfileModule',
+        canActivate: [
+          AuthGuard
+        ]
       },
       {
         path: 'FAQ',
-        loadChildren: './faq/faq.module#FaqModule'
+        loadChildren: './faq/faq.module#FaqModule',
+        canActivate: [
+          AuthGuard
+        ]
       },
       {
         path: 'payment',
-        loadChildren: './payment/payment.module#PaymentModule'
+        loadChildren: './payment/payment.module#PaymentModule',
+        canActivate: [
+          AuthGuard
+        ]
       },
       {
         path: '',
         pathMatch: 'full',
-        loadChildren: './main/main.module#MainModule'
+        loadChildren: './main/main.module#MainModule',
+        canActivate: [
+          AuthGuard
+        ]
       },
       {
         path: '**',
-        redirectTo: '/404'
+        redirectTo: '/404',
+        canActivate: [
+          AuthGuard
+        ]
       },
       {
         path: '404',
@@ -45,7 +67,7 @@ import { PaymentModule } from './payment/payment.module';
       }
     ], {
       useHash: true,
-      enableTracing: true
+      // enableTracing: true
     })
   ],
   declarations: [],

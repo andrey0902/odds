@@ -6,13 +6,17 @@ export class AuthService {
 
   constructor() { }
 
-  public isLogin() {
-    '';
+  public isLogin(): boolean {
+    return !!SessionService.getUser();
   }
 
   public login() {
     SessionService.setUser({login: 'login',
     password: 5555});
+  }
+
+  public logOut() {
+    SessionService.setUser(null);
   }
 
   public getUser() {

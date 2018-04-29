@@ -1,7 +1,7 @@
 <div>
   <form [formGroup]="signIn" (submit)="onSubmit(signIn)">
     <input type='email' formControlName="name">
-    <input type="password" formControlName="password">
+    <input type="password" [formControl]="signIn.get('password')">
     <button type="submit">
       send
     </button>
@@ -10,4 +10,6 @@
 <p>
   sign-in works!
   <button (click)="login()">login</button>
+  <button (click)="logOut()">logOut</button>
+  <button (click)="shoveUser()">shove user</button>
 </p>

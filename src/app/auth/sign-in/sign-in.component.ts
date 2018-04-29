@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { OddsValidators } from '../../shared/services/odds-validators.service';
 
 @Component({
   selector: 'odds-sign-in',
@@ -20,8 +21,17 @@ export class SignInComponent implements OnInit {
 
   public createForm() {
     this.signIn = this.fb.group({
-      name: [null, Validators.required, Validators.minLength(5), Validators.maxLength(50)],
-      password: [null, Validators.required, Validators.minLength(5), Validators.maxLength(50)]
+      name: ['', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(50),
+        OddsValidators.checkEmail
+      ]],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(50)
+      ]]
     });
   }
 
@@ -30,8 +40,17 @@ export class SignInComponent implements OnInit {
     console.log(this.authService.getUser());
   }
 
+  public logOut() {
+    this.authService.logOut();
+  }
+
+  public shoveUser() {
+    console.log('user', this.authService.getUser());
+  }
+
   public onSubmit(form: FormGroup) {
     console.log(form.value);
+    console.log('form', form);
   }
 
 }
