@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { OddsValidators } from '../../shared/services/odds-validators.service';
@@ -13,7 +13,8 @@ export class SignInComponent implements OnInit {
   public signIn: FormGroup;
   constructor(private route: ActivatedRoute,
               private authService: AuthService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder,
+              private router: Router) { }
 
   ngOnInit() {
     this.createForm();
@@ -38,6 +39,7 @@ export class SignInComponent implements OnInit {
   public login() {
     this.authService.login();
     console.log(this.authService.getUser());
+    this.router.navigate(['/']);
   }
 
   public logOut() {
