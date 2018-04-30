@@ -14,7 +14,7 @@ import { HandlerErrorService } from '../../shared/services/handler-error.service
 @Component({
   selector: 'odds-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
   public signIn: FormGroup;
