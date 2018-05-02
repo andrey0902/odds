@@ -5,6 +5,79 @@
   &-text {
     color: $gray-text;
   }
+}
 
+.btn {
 
+  &-width {
+    width: 100%;
+    color: #fff;
+  }
+
+  &-facebook {
+    background: $blue-button;
+  }
+
+  &-google {
+    background: $red-button;
+  }
+
+  &-submit {
+    color: #fff !important;
+    background-color: $coral-button !important;
+  }
+
+  &-submit.valid {
+    background-color: $orange !important;
+  }
+}
+
+.or {
+  text-align: center;
+
+  &-text {
+    display: inline-block;
+    color: $gray-text;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -26px;
+      width: 20px;
+      height: 1px;
+      border-bottom: 1px solid $gray-text;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: -26px;
+      width: 20px;
+      height: 1px;
+      border-bottom: 1px solid $gray-text;
+    }
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.have-account {
+  text-align: center;
+  color: $gray-text;
+}
+
+.link {
+  color: $orange;
+  text-decoration: none;
+}
+
+.confirm-text {
+  color: $gray-text;
 }

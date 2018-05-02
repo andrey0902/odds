@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'odds-sign-up',
@@ -17,7 +17,7 @@ export class SignUpComponent implements OnInit {
 
   public createForm() {
     this.signUp = this.fb.group({
-      name: [null, []],
+      name: [null, [Validators.minLength(3), Validators.maxLength(50), Validators.required]],
       email: [null, []],
       password: [null, []]
     });
