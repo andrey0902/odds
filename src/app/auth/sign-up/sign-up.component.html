@@ -1,3 +1,59 @@
-<p>
-  sign-up works!
-</p>
+<div class="wrapper">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <odds-logo></odds-logo>
+        <div class="title trial">
+          <span class="trial-text">
+            Start your free 7 day trial today!
+          </span>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <button>Sign up with Facebook (Confirm T&C)</button>
+        <button>Sign up wish Google (Confirm T&C)</button>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <div class="or">
+          <p class="or-text">
+            or
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <div class="wrapper-form">
+          <form class="sign-up" [formGroup]="signUp">
+            <mat-form-field>
+              <input matInput placeholder="Name" formControlName="name" type="text">
+              <mat-error *ngIf="signUp.get('name').invalid">{{getErrorMessage(signUp.get('name'))}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Name" formControlName="email" type="email">
+              <mat-error *ngIf="signUp.get('name').invalid">{{getErrorMessage(signUp.get('name'))}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Enter your password" formControlName="password" [type]="hide ? 'password' : 'text'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+              <mat-error *ngIf="signUp.get('password').invalid">{{getErrorMessage(signUp.get('password'))}}</mat-error>
+            </mat-form-field>
+            <button type="submit">
+              send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

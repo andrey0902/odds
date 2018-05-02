@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { MatButtonModule, MatFormFieldModule, MatIconModule } from '@angular/material';
+import { LogoModule } from '../shared/logo/logo.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { MatButtonModule, MatFormFieldModule, MatIconModule } from '@angular/mat
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
+    LogoModule,
   ],
   declarations: [
     SignInComponent,
