@@ -10,9 +10,6 @@ export class AuthGuard implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot,
               state: RouterStateSnapshot): boolean {
     const isLoginPage = state.url.indexOf('/auth/') !== -1;
-    console.log('isLoginPage', isLoginPage);
-    console.log('next', next);
-    console.log('state', state);
     return this.checkLogin(isLoginPage);
   }
 

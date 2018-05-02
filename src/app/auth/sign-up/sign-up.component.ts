@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthCoreService } from '../../core/services/auth-core.service';
+import { HandlerErrorService } from '../../shared/services/handler-error.service';
+import { ProfileService } from '../../core/services/profile.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'odds-sign-up',
@@ -11,7 +14,10 @@ export class SignUpComponent implements OnInit {
   public signUp: FormGroup;
   public hide = true;
   constructor(private fb: FormBuilder,
-              private authService: AuthCoreService) { }
+              private authService: AuthCoreService,
+              private handlerError: HandlerErrorService,
+              private profileService: ProfileService,
+              private router: Router) { }
 
   ngOnInit() {
     this.createForm();
@@ -25,8 +31,8 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  public getErrorMessage() {
-
+  public getErrorMessage(control: FormControl) {
+    return this.handlerError.getError(control);
   }
 
   public onSubmit(event, form: FormGroup) {
@@ -34,6 +40,8 @@ export class SignUpComponent implements OnInit {
     if (form.valid) {
       this.authService.signUp(form.value)
         .subscribe(response => {
+          this.profileService.emailUser = 'test@com.ua';
+          this.router.navigate(['/auth/done']);
           console.log('response', response);
         });
     }

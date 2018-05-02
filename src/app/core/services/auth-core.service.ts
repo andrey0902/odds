@@ -29,11 +29,12 @@ export class AuthCoreService {
   }
 
   public getToken(): string {
-    const token = SessionService.getUser().token;
-    return token ? token : null;
+   // return  SessionService.getUser() ? SessionService.getUser().token : null;
+    return '66666';
   }
 
   public signUp(data: any) {
+    console.log('data', data);
    return this.http.post(`${'http://test.com'}`, data)
       .pipe(catchError((error) => {
         console.log('error', error);

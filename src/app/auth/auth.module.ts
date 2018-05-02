@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { MatButtonModule, MatFormFieldModule, MatIconModule } from '@angular/material';
 import { LogoModule } from '../shared/logo/logo.module';
+import { DoneComponent } from './done/done.component';
+import { GuardService } from './services/guard.service';
 
 @NgModule({
   imports: [
@@ -20,12 +22,13 @@ import { LogoModule } from '../shared/logo/logo.module';
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatIconModule,
     LogoModule,
   ],
   declarations: [
     SignInComponent,
     SignUpComponent,
-  ]
+    DoneComponent,
+  ],
+  providers: [GuardService]
 })
 export class AuthModule { }

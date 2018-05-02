@@ -22,7 +22,6 @@ export class HandlerErrorService {
     console.log(control.errors);
    return Object.keys(control.errors)
       .map(field => {
-        console.log(field);
         return this.getMessage(field, control.errors[field]);
       });
   }
