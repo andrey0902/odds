@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthCoreService } from '../../core/services/auth-core.service';
 
 @Component({
   selector: 'odds-sign-up',
@@ -9,7 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SignUpComponent implements OnInit {
   public signUp: FormGroup;
   public hide = true;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private authService: AuthCoreService) { }
 
   ngOnInit() {
     this.createForm();
@@ -25,6 +27,16 @@ export class SignUpComponent implements OnInit {
 
   public getErrorMessage() {
 
+  }
+
+  public onSubmit(event, form: FormGroup) {
+    event.preventDefault();
+    if (form.valid) {
+      this.authService.signUp(form.value)
+        .subscribe(response => {
+          console.log('response', response);
+        });
+    }
   }
 
 }

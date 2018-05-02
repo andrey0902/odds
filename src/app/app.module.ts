@@ -11,10 +11,12 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from 'angular5-social-login';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NoDataComponent } from './no-data/no-data.component';
 import { getAuthServiceConfigs } from './core/services/social.config';
+import { TokenInterceptor } from './core/services/intercepter.service';
 
 
 @NgModule({
@@ -34,6 +36,11 @@ import { getAuthServiceConfigs } from './core/services/social.config';
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
     }
   ],
   bootstrap: [
