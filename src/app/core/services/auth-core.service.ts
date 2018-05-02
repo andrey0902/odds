@@ -42,4 +42,8 @@ export class AuthCoreService {
       }));
   }
 
+  public sendVerifiEmail(key) {
+    return this.http.post('', key);
+  }
+
 }

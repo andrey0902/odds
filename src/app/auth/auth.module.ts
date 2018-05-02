@@ -11,6 +11,7 @@ import { MatButtonModule, MatFormFieldModule, MatIconModule } from '@angular/mat
 import { LogoModule } from '../shared/logo/logo.module';
 import { DoneComponent } from './done/done.component';
 import { GuardService } from './services/guard.service';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { GuardService } from './services/guard.service';
     SignInComponent,
     SignUpComponent,
     DoneComponent,
+    ConfirmEmailComponent,
   ],
   providers: [GuardService]
 })

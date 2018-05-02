@@ -4,6 +4,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { DoneComponent } from './done/done.component';
 import { GuardService } from './services/guard.service';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,10 @@ import { GuardService } from './services/guard.service';
         canActivate: [
           GuardService
         ]
+      },
+      {
+        path: 'confirm-email/:key',
+        component: ConfirmEmailComponent
       }
     ])
   ],
