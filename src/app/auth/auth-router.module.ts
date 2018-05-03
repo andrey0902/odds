@@ -21,7 +21,7 @@ import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
         path: 'done',
         component: DoneComponent,
         canActivate: [
-          GuardService
+          // GuardService
         ]
       },
       {

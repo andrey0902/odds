@@ -35,7 +35,7 @@ export class AuthCoreService {
 
   public signUp(data: any) {
     console.log('data', data);
-   return this.http.post(`${'http://test.com'}`, data)
+   return this.http.post(`${'http://172.16.101.19:3000/auth/'}`, data)
       .pipe(catchError((error) => {
         console.log('error', error);
         return of(error);

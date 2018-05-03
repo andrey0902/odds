@@ -1,0 +1,39 @@
+@import "../../../styles/variables";
+
+.done {
+  padding-top: 30px;
+
+  &-text {
+    font-size: 20px;
+    color: #59546e;
+    text-align: center;
+  }
+}
+
+.description {
+  padding-top: 25px;
+  &-text {
+    text-align: center;
+    color: $gray-text;
+  }
+}
+
+.email-text {
+  color: $orange;
+}
+
+.resend {
+  color: $orange;
+  cursor: pointer;
+
+  &-email {
+    padding-top: 25px;
+
+    &-text {
+      text-align: center;
+      color: $gray-text;
+    }
+  }
+
+
+}

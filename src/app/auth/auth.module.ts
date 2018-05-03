@@ -12,6 +12,7 @@ import { LogoModule } from '../shared/logo/logo.module';
 import { DoneComponent } from './done/done.component';
 import { GuardService } from './services/guard.service';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
