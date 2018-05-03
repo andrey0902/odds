@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div class="result"
+       [ngStyle]="{left: value + '%'}"
+  >
+    {{value}}%
+  </div>
+  <mat-slider
+    class="example-margin"
+    [invert]="invert"
+    [max]="max"
+    [min]="min"
+    [step]="step"
+    [thumb-label]="thumbLabel"
+    [tick-interval]="tickInterval"
+    [(ngModel)]="value"
+    [vertical]="vertical">
+  </mat-slider>
+</div>
+
+

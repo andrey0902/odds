@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
 import { NoDataComponent } from './no-data/no-data.component';
 import { getAuthServiceConfigs } from './core/services/social.config';
 import { TokenInterceptor } from './core/services/intercepter.service';
-import { InterceptorErrorService } from './core/services/interceptor-error.service';
+import { RangesModule } from './shared/ranges/ranges.module';
 
 
 @NgModule({
@@ -33,6 +33,7 @@ import { InterceptorErrorService } from './core/services/interceptor-error.servi
     AppRoutingModule,
     SocialLoginModule,
     BrowserAnimationsModule,
+    RangesModule,
   ],
   providers: [
     {
