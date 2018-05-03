@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'odds-ranges',
   templateUrl: './ranges.component.html',
   styleUrls: ['./ranges.component.scss']
 })
-export class RangesComponent implements OnInit {
+export class RangesComponent implements OnInit, AfterViewInit {
+  @ViewChild('volume') public volume: ElementRef;
   public invert = false;
   public max = 100;
   public min = 0;
@@ -18,5 +19,11 @@ export class RangesComponent implements OnInit {
 
   ngOnInit() {
   }
+  ngAfterViewInit() {
 
+  }
+
+  public remaining () {
+    return 99.5 - +this.value;
+  }
 }

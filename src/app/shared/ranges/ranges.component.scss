@@ -1,3 +1,4 @@
+@import "../../../styles/variables";
 :host {
   display: block;
 }
@@ -17,4 +18,88 @@
 
 mat-slider {
   display: block;
+}
+
+.slider {
+  position: relative;
+  //width: 200px;
+  height: 34px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+
+  &-value {
+    margin-right: 3px;
+  }
+}
+
+.slider-output {
+  display: block;
+  position: absolute;
+  top: -68%;
+  width: 35px;
+  text-align: center;
+  left: 50%;
+  font-size: 10px;
+  box-sizing: border-box;
+  transform: translateX(-44%);
+}
+
+.slider-input {
+  -webkit-appearance: none;
+  background-color: transparent;
+  position: absolute;
+  width: 109%;
+  margin-left: -5px;
+  height: 1rem;
+  margin-top: -7px;
+  outline: none;
+}
+
+.slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2rem;
+  height: 8rem;
+}
+
+.slider-thumb, .top-thumb, .tail-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: -6px;
+  background-color: $orange;
+}
+
+.slider-thumb {
+  left: 50%;
+  margin-left: -6px;
+}
+
+.slider-track {
+  height: 3px;
+  background-color: #ddd;
+  border-radius: .25rem;
+}
+
+.slider-level {
+  height: 3px;
+  background-color: $orange;
+  width: 50%;
+  border-radius: 1rem;
+}
+
+.value {
+  position: absolute;
+  top: -68%;
+  margin: 0;
+  font-size: 10px;
+}
+
+.min {
+  left: 0;
+}
+
+.max {
+  right: 0;
 }
