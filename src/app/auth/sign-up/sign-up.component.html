@@ -38,8 +38,8 @@
             </mat-form-field>
 
             <mat-form-field>
-              <input matInput placeholder="Name" formControlName="email" type="email">
-              <mat-error *ngIf="signUp.get('name').invalid">{{getErrorMessage(signUp.get('name'))}}</mat-error>
+              <input matInput placeholder="Email" formControlName="email" type="email">
+              <mat-error *ngIf="signUp.get('email').invalid">{{getErrorMessage(signUp.get('email'))}}</mat-error>
             </mat-form-field>
 
             <mat-form-field>

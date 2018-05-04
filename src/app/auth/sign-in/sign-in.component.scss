@@ -83,3 +83,19 @@ mat-form-field {
     outline: none;
   }
 }
+
+.no-account {
+  color: $gray-text;
+}
+
+.link {
+  text-decoration: none;
+  color: $orange;
+}
+
+.server-error {
+  color: $red-error;
+  text-align: center;
+  padding: 0 25px 30px;
+  font-size: 14px;
+}

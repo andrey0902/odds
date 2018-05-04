@@ -1,0 +1,29 @@
+<h2 mat-dialog-title class="title">Retrieve your password
+  <button class="closed" [mat-dialog-close]="true"><i class="material-icons">close</i></button>
+</h2>
+<mat-dialog-content>
+
+
+</mat-dialog-content>
+
+
+<form class="sign-up" [formGroup]="retrieveForm" (submit)="onSubmit($event, retrieveForm)">
+  <div class="server-error"
+       *ngIf="serverError"
+  >
+    Username with such email does't exist!
+  </div>
+  <div class="form-email">
+    <mat-form-field>
+      <input matInput placeholder="Email address" formControlName="email" type="email">
+      <mat-error *ngIf="retrieveForm.get('email').invalid">{{getErrorMessage(retrieveForm.get('email'))}}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <odds-button class="btn-submit"
+               [text]="'Retrieve password'"
+               [type]="'submit'"
+               [valid]="retrieveForm.valid"
+               [invalid]="retrieveForm.invalid"
+  ></odds-button>
+</form>

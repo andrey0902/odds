@@ -7,13 +7,14 @@ import { AuthRouterModule } from './auth-router.module';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
-import { MatButtonModule, MatFormFieldModule, MatIconModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule } from '@angular/material';
 import { LogoModule } from '../shared/logo/logo.module';
 import { DoneComponent } from './done/done.component';
 import { GuardService } from './services/guard.service';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from '../shared/button/button.module';
+import { ModalComponent } from './shared/components/modal/modal.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { ButtonModule } from '../shared/button/button.module';
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatDialogModule,
     LogoModule,
     ButtonModule,
   ],
@@ -33,6 +35,10 @@ import { ButtonModule } from '../shared/button/button.module';
     SignUpComponent,
     DoneComponent,
     ConfirmEmailComponent,
+    ModalComponent,
+  ],
+  entryComponents: [
+    ModalComponent
   ],
   providers: [GuardService]
 })

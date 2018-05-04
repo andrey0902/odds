@@ -59,6 +59,11 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-4 col-sm-8">
         <form [formGroup]="signIn" (submit)="onSubmit(signIn)">
+          <div class="server-error"
+               *ngIf="serverError"
+          >
+            Oops! The email or password you entered is incorrect. Please try again.
+          </div>
           <div class="form-name">
             <mat-form-field>
               <input matInput placeholder="Email address" formControlName="name" type="email">
@@ -74,15 +79,13 @@
           </div>
           <div class="form-forgot">
             <button type="button"
+                    *ngIf="!serverError"
                     class="forgot-password"
                     (click)="openForgot($event)"
             >
               Forgot your password?
             </button>
           </div>
-<!--          <button type="submit">
-            Log in
-          </button>-->
           <odds-button class="btn-submit"
             [text]="'Log in'"
             [type]="'submit'"

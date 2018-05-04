@@ -10,6 +10,8 @@ import {
   GoogleLoginProvider
 } from 'angular5-social-login';
 import { HandlerErrorService } from '../../shared/services/handler-error.service';
+import { MatDialog } from '@angular/material';
+import { ModalComponent } from '../shared/components/modal/modal.component';
 
 @Component({
   selector: 'odds-sign-in',
@@ -19,15 +21,22 @@ import { HandlerErrorService } from '../../shared/services/handler-error.service
 export class SignInComponent implements OnInit {
   public signIn: FormGroup;
   public hide = true;
+  public serverError = false;
   constructor(private route: ActivatedRoute,
               private authService: AuthCoreService,
               private fb: FormBuilder,
               private router: Router,
               private socialAuthService: AuthService,
-              private handlerError: HandlerErrorService) { }
+              private handlerError: HandlerErrorService,
+              private dialog: MatDialog) { }
 
   ngOnInit() {
     this.createForm();
+    this.signIn.valueChanges.subscribe(value => {
+      if (this.serverError) {
+        this.serverError = false;
+      }
+    });
   }
 
   public createForm() {
@@ -63,6 +72,7 @@ export class SignInComponent implements OnInit {
   public onSubmit(form: FormGroup) {
     console.log(form.value);
     console.log('form', form);
+    this.serverError = true;
   }
 
   public socialSignIn(socialPlatform: string) {
@@ -88,6 +98,10 @@ export class SignInComponent implements OnInit {
   public openForgot(event) {
     event.preventDefault();
     console.log('OPEN MODAL FORGOT PASSWORD');
+    this.dialog.open(ModalComponent, {
+      data: {title: 'test title'},
+      width: '400px'
+    });
   }
 
 }
