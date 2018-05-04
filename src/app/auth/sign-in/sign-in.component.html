@@ -1,4 +1,4 @@
-<div>
+<!--<div>
   <form [formGroup]="signIn" (submit)="onSubmit(signIn)">
     <mat-form-field>
       <input matInput placeholder="Name" formControlName="name" type="email">
@@ -27,21 +27,77 @@
 </div>
 
 <div>
-</div>
+</div>-->
 
 
 <div class="wrapper">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-4">
-        <a routerLink="/" class="logo">
-          <span class="logo_text orange">
-            ODDS
+        <odds-logo class="logo"></odds-logo>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-4 col-sm-8">
+        <button mat-raised-button class="btn-width btn-facebook"
+                (click)="socialSignIn('facebook')"
+        >Log in with Facebook</button>
+        <button mat-raised-button class="btn-width btn-google"
+                (click)="socialSignIn('google')"
+        >Log in wish Google</button>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <div class="or">
+          <span class="or-text">
+            or
           </span>
-          <span class="logo_text blue">
-            Tribe
-          </span>
-        </a>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-4 col-sm-8">
+        <form [formGroup]="signIn" (submit)="onSubmit(signIn)">
+          <div class="form-name">
+            <mat-form-field>
+              <input matInput placeholder="Email address" formControlName="name" type="email">
+              <mat-error *ngIf="signIn.get('name').invalid">{{getErrorMessage(signIn.get('name'))}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-password">
+            <mat-form-field>
+              <input matInput placeholder="Enter your password" formControlName="password" [type]="hide ? 'password' : 'text'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+              <mat-error *ngIf="signIn.get('password').invalid">{{getErrorMessage(signIn.get('password'))}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-forgot">
+            <button type="button"
+                    class="forgot-password"
+                    (click)="openForgot($event)"
+            >
+              Forgot your password?
+            </button>
+          </div>
+<!--          <button type="submit">
+            Log in
+          </button>-->
+          <odds-button class="btn-submit"
+            [text]="'Log in'"
+            [type]="'submit'"
+            [valid]="signIn.valid"
+            [invalid]="signIn.invalid"
+          ></odds-button>
+
+        </form>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-4 col-sm-8">
+        <p class="no-account">
+          Don't have an AppName account yet? <a class="link" [routerLink]="['/auth/sign-up']">Sign up here</a>
+        </p>
       </div>
     </div>
   </div>

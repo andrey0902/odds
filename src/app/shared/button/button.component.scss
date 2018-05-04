@@ -1,0 +1,26 @@
+@import "../../../styles/variables";
+
+.btn {
+
+  &-width {
+    width: 100%;
+    color: #fff;
+  }
+
+  &-facebook {
+    background: $blue-button;
+  }
+
+  &-google {
+    background: $red-button;
+  }
+
+  &-submit {
+    color: #fff !important;
+    background-color: $coral-button !important;
+  }
+
+  &-submit.valid {
+    background-color: $orange !important;
+  }
+}

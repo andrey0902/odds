@@ -85,4 +85,9 @@ export class SignInComponent implements OnInit {
    return this.handlerError.getError(control);
   }
 
+  public openForgot(event) {
+    event.preventDefault();
+    console.log('OPEN MODAL FORGOT PASSWORD');
+  }
+
 }

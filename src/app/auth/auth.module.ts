@@ -13,6 +13,7 @@ import { DoneComponent } from './done/done.component';
 import { GuardService } from './services/guard.service';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { RouterModule } from '@angular/router';
+import { ButtonModule } from '../shared/button/button.module';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatFormFieldModule,
     LogoModule,
+    ButtonModule,
   ],
   declarations: [
     SignInComponent,
