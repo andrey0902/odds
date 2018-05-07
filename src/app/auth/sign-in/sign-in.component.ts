@@ -73,6 +73,7 @@ export class SignInComponent implements OnInit {
     console.log(form.value);
     console.log('form', form);
     this.serverError = true;
+    this.login();
   }
 
   public socialSignIn(socialPlatform: string) {

@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+.title {
+  color: $gray-text;
+  font-size: 2rem;
+  padding: 35px 15px;
+}
+
+.section-bet-feed {
+  background-color: $light-white;
+  min-height: calc(100vh - 50px);
+}
+
+.block {
+
+  &-table-result, &-filter {
+   padding: 15px 15px;
+  }
+
+  &-filter {
+
+  }
+
+  &-table-result {
+
+  }
+}

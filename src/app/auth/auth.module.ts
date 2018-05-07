@@ -15,6 +15,8 @@ import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from '../shared/button/button.module';
 import { ModalComponent } from './shared/components/modal/modal.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ResetGuard } from './services/reset-guard';
 
 @NgModule({
   imports: [
@@ -36,10 +38,14 @@ import { ModalComponent } from './shared/components/modal/modal.component';
     DoneComponent,
     ConfirmEmailComponent,
     ModalComponent,
+    PasswordResetComponent,
   ],
   entryComponents: [
     ModalComponent
   ],
-  providers: [GuardService]
+  providers: [
+    GuardService,
+    ResetGuard,
+  ]
 })
 export class AuthModule { }

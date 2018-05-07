@@ -4,28 +4,40 @@ import { HttpClient } from '@angular/common/http';
 import { errorHandler } from '@angular/platform-browser/src/browser';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
+import { ProfileService } from './profile.service';
+import { UserModel } from '../models/user.model';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthCoreService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private profileService: ProfileService,
+              private router: Router) {
+    this.profileService.user = this.getUser();
+  }
 
   public isLogin(): boolean {
     return !!SessionService.getUser();
   }
 
   public login() {
-    SessionService.setUser({login: 'login',
+    SessionService.setUser({name: 'Denis Marshal',
+      id: 1,
     password: 5555,
     token: 66666});
+  //  TODO need create method login with server and handler for add user for profile service
+    this.profileService.user = this.getUser();
   }
 
   public logOut() {
     SessionService.setUser(null);
+    this.router.navigate(['/auth/sign-in']);
   }
 
   public getUser() {
-   return SessionService.getUser();
+    const user = SessionService.getUser();
+    return user ? new UserModel(user) : null;
   }
 
   public getToken(): string {

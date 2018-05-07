@@ -15,4 +15,16 @@ export class OddsValidators extends Validators {
       }
     }
   }
+
+  public static passwordMatch(control: AbstractControl) {
+    const password = control.get('password').value;
+    const confirm = control.get('confirmPassword').value;
+    if (confirm && password) {
+      if (password !== confirm) {
+        control.get('confirmPassword').setErrors({passwordMatch: true});
+      } else {
+        return null;
+      }
+    }
+  }
 }

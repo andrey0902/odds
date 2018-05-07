@@ -1,0 +1,42 @@
+@import "../../../styles/variables";
+
+:host {
+  display: block;
+}
+.header {
+  border-bottom: 1px solid #eceef5;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 30px;
+  box-sizing: border-box;
+
+  &-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &-profile {
+    display: flex;
+    align-items: center;
+  }
+}
+
+mat-icon {
+  color: $gray-text;
+}
+
+.user-name {
+  color: $gray-text;
+}
+
+.link {
+  color: $gray-text;
+  text-decoration: none;
+
+}
+.active {
+  font-weight: 600;
+  background-color: lighten($gray-text, 40%);
+}
+

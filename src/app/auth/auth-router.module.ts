@@ -5,6 +5,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { DoneComponent } from './done/done.component';
 import { GuardService } from './services/guard.service';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { ResetGuard } from './services/reset-guard';
 
 @NgModule({
   imports: [
@@ -27,6 +29,17 @@ import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
       {
         path: 'confirm-email/:key',
         component: ConfirmEmailComponent
+      },
+      {
+        path: 'password_reset/:key',
+        component: PasswordResetComponent,
+        canActivate: [
+          ResetGuard
+        ]
+      },
+      {
+        path: 'password_reset',
+        redirectTo: '/'
       }
     ])
   ],

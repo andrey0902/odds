@@ -50,3 +50,18 @@ mat-form-field {
   padding: 30px 25px 0;
   font-size: 14px;
 }
+
+.success {
+  text-align: center;
+  margin-top: 40px;
+
+  &-text {
+    color: $gray-text;
+    text-align: center;
+  }
+
+  &-link {
+    text-decoration: none;
+    color: $orange;
+  }
+}

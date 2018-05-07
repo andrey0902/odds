@@ -12,6 +12,7 @@ import { HandlerErrorService } from '../../../../shared/services/handler-error.s
 export class ModalComponent implements OnInit {
   public retrieveForm: FormGroup;
   public serverError = false;
+  public successSend = false;
 
   constructor(public dialogRef: MatDialogRef<ModalComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
@@ -48,6 +49,9 @@ export class ModalComponent implements OnInit {
 
   public onSubmit(event, form: FormGroup) {
     event.preventDefault();
+    // TODO: need do method send to server and handler error when error iset intialize serverError
     console.log('value', form.value);
+    this.serverError = true;
+    this.successSend = true;
   }
 }

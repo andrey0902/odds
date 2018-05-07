@@ -13,13 +13,14 @@ export class HandlerErrorService {
     'uniqueName': (params) => params.message,
     'telephoneNumbers': (params) => params.message,
     'telephoneNumber': (params) => params.message,
-    patternEmail: () => 'Is not correct email'
+    patternEmail: () => 'Is not correct email',
+    'passwordMatch': () => 'Passwords do not match',
   };
   constructor() {
   }
 
   public getError(control: FormControl) {
-    console.log(control.errors);
+    // console.log(control.errors);
    return Object.keys(control.errors)
       .map(field => {
         return this.getMessage(field, control.errors[field]);
