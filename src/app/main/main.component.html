@@ -11,7 +11,13 @@
     <div class="row">
       <div class="col-md-3">
         <div class="block-filter">
-          filter
+          <odds-list-filter [filters]="listFilter">
+            <button type="button" mat-raised-button class="btn btn-width"
+                    (click)="openModal()"
+            >
+              Add filters
+            </button>
+          </odds-list-filter>
         </div>
       </div>
       <div class="col-md-9">
