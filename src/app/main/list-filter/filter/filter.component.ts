@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'odds-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.css']
+  styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
-
-  constructor() { }
+  @Input() filter;
+  constructor() {}
 
   ngOnInit() {
   }
