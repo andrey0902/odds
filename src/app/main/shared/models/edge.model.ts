@@ -1,10 +1,10 @@
 export class EdgeModel {
   name: string;
-  form: string;
+  from: string;
   to: string;
 
   constructor(data) {
-    this.form = data.from;
+    this.from = data.from;
     this.to = data.to;
   }
 }

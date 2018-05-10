@@ -1,3 +1,19 @@
+@import "../../../../styles/variables";
 :host {
   display: block;
 }
+
+mat-expansion-panel-header {
+  border-bottom: 1px solid #eceef5;
+  box-sizing: border-box;
+}
+
+.bookmakers {
+
+  &-title {
+    color: $gray-text;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}
+

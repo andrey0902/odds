@@ -1,7 +1,96 @@
+@import "../../../styles/variables";
 .list-filters {
   margin-top: 15px;
 }
 
 .item-filter {
   margin-bottom: 7px;
+
+  p {
+    margin-bottom: 8px;
+  }
+}
+
+mat-expansion-panel-header {
+  border-bottom: 1px solid #eceef5;
+  box-sizing: border-box;
+}
+
+mat-action-row {
+  padding: 16px;
+}
+.mat-action-row button.mat-button {
+  margin-left: 0;
+}
+
+
+
+.bookmakers {
+
+}
+
+.title {
+  color:$gray-title;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.text {
+  color: $gray-text;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.filter-name {
+  font-size: 16px;
+}
+
+.action-block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit {
+  border: 1px solid $orange;
+  box-sizing: border-box;
+  color: $orange;
+}
+
+.apply {
+  background-color: $orange;
+  color: #fff;
+}
+
+.apply-text {
+  color: $gray-text;
+}
+
+.active-name {
+  color: $orange;
+}
+
+.no-content {
+  min-height: 300px;
+
+  &-wrapper {
+    text-align: center;
+  }
+
+  &-title {
+    color: $accent-gray;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  &-description {
+    color: $gray-text;
+  }
+}
+
+.arrow-img_position {
+  max-height: 250px;
+  display: block;
+  padding-top: 10px;
+  margin-left: 42%;
 }

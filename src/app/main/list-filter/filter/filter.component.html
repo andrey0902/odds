@@ -1,4 +1,4 @@
-<mat-expansion-panel  >
+<mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
       {{filter.name}}
@@ -7,5 +7,28 @@
       (Applied)
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <p>I'm visible because I am open</p>
+  <p class="bookmakers">
+    <span class="bookmakers-title">Bookmakers:</span>
+    <span class="bookmakers-text">{{getListText(filter.bookmakers)}}</span>
+  </p>
+  <p class="markets">
+    <span class="markets-title">Markets:</span>
+    <span class="markets-text">{{getListText(filter.markets)}}</span>
+  </p>
+  <p class="odds-range">
+    <span class="odds-range-title">Odds range:</span>
+    <span class="odds-range-text">{{filter.oddsRange?.from}} - {{filter.oddsRange?.to}}</span>
+  </p>
+  <p class="edge">
+    <span class="edge-title">Edge</span>
+    <span class="edge-text">{{filter.edge?.from}} - {{filter.edge?.to}}%</span>
+  </p>
+  <p class="time">
+    <span class="time-title">Time until start:</span>
+    <span class="time-text"> {{filter.time?.from}} - {{filter.time?.to}} hours</span>
+  </p>
+  <mat-action-row>
+    <button mat-button>Previous</button>
+    <button mat-button>Next</button>
+  </mat-action-row>
 </mat-expansion-panel>

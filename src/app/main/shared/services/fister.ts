@@ -17,7 +17,16 @@ export const filters = [
         'name': ' Coral 2'
       },{
         'id': 5,
-        'name': ' Coral 3'
+        'name': ' Tesslo 1'
+      },{
+        'id': 6,
+        'name': ' Timon 3'
+      },{
+        'id': 7,
+        'name': ' Seliction 3'
+      },{
+        'id': 8,
+        'name': ' Madride 3'
       }
     ],
     'markets': [
@@ -47,7 +56,7 @@ export const filters = [
   },
   {
     'name': 'filter2',
-    'id': 1,
+    'id': 2,
     'bookmakers': [
       {
         'id': 1,
@@ -93,7 +102,7 @@ export const filters = [
   },
   {
     'name': 'filter3',
-    'id': 1,
+    'id': 3,
     'bookmakers': [
       {
         'id': 1,
@@ -139,7 +148,7 @@ export const filters = [
   },
   {
     'name': 'filter4',
-    'id': 1,
+    'id': 4,
     'bookmakers': [
       {
         'id': 1,
@@ -188,7 +197,7 @@ export const filters = [
   },
   {
     'name': 'filter5',
-    'id': 1,
+    'id': 5,
     'bookmakers': [
       {
         'id': 1,
