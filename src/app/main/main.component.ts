@@ -4,6 +4,7 @@ import { MainService } from './shared/services/main.service';
 import { FilterModel } from './shared/models/filter.model';
 import { MatDialog } from '@angular/material';
 import { FilterModalComponent } from './shared/components/filter-modal/filter-modal.component';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'odds-main',
@@ -12,6 +13,7 @@ import { FilterModalComponent } from './shared/components/filter-modal/filter-mo
 })
 export class MainComponent implements OnInit {
   panelOpenState = false;
+  public control;
   public listFilter: FilterModel[];
   constructor(private authService: AuthCoreService,
               private mainService: MainService,
@@ -19,6 +21,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.getFilters();
+    this.control = new FormControl('a', [Validators.required]);
   }
 
   public logOut() {

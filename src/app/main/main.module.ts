@@ -10,6 +10,7 @@ import { MatButtonModule, MatDialogModule, MatExpansionModule } from '@angular/m
 import { MainService } from './shared/services/main.service';
 import { FilterModalComponent } from './shared/components/filter-modal/filter-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {InputModule} from '../shared/input/input.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatExpansionModule,
     MatDialogModule,
+    InputModule,
   ],
   declarations: [
     MainComponent,

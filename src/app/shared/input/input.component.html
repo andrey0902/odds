@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div class="input-wrapper">
+    <input type="text" #simpleInput class="input-simple"
+           (keyup)="onChange(simpleInput.value)"
+           (change)="onChange(simpleInput.value)"
+           [disabled]="disabled"
+           [class.disabled]="disabled"
+    >
+  </div>
+  <div class="mat-form-field-subscript-wrapper " *ngIf="ngControl?.invalid">
+    <p class="mat-error" >{{getErrorMessage(ngControl)}}</p>
+  </div>
+</div>
+
