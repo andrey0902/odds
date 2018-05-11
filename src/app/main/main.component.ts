@@ -21,7 +21,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.getFilters();
-    this.control = new FormControl('a', [Validators.required]);
+    this.control = new FormControl('0', [Validators.required]);
   }
 
   public logOut() {

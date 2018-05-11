@@ -11,6 +11,8 @@ import { MainService } from './shared/services/main.service';
 import { FilterModalComponent } from './shared/components/filter-modal/filter-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {InputModule} from '../shared/input/input.module';
+import { SelectModule } from '../shared/select/select.module';
+import { InputNumberModule } from '../shared/input-number/input-number.module';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import {InputModule} from '../shared/input/input.module';
     MatExpansionModule,
     MatDialogModule,
     InputModule,
+    SelectModule,
+    InputNumberModule,
   ],
   declarations: [
     MainComponent,

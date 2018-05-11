@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <odds-field [title]="title"
+             (click)="toggleDropdown($event)"
+             [disabled]="disabled"
+             [isVisible]="isVisible"
+  ></odds-field>
+  <odds-list *ngIf="isVisible"
+            [maxHeight]="settings.maxHeight"
+            [isVisible]="isVisible"
+            [filteredOptions]="filteredOptions"
+            [showCheckAll]="settings.showCheckAll"
+            [checkAllText]="texts.checkAll"
+            [options]="options"
+            [settings]="settings"
+            (isChecked)="onSelect($event)"
+  ></odds-list>
+</div>

@@ -1,4 +1,4 @@
-import {Component, ElementRef, forwardRef, Injector, OnInit, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, forwardRef, Injector, OnInit, ViewChild } from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl} from '@angular/forms';
 import {HandlerErrorService} from '../services/handler-error.service';
 export const INPUT_VALUE_ACCESSOR: any = {
@@ -13,12 +13,14 @@ export const INPUT_VALUE_ACCESSOR: any = {
   styleUrls: ['./input.component.scss'],
   providers: [INPUT_VALUE_ACCESSOR]
 })
-export class InputComponent implements OnInit, ControlValueAccessor {
+export class InputComponent implements OnInit, ControlValueAccessor, AfterViewInit {
+
   @ViewChild('simpleInput') public simpleInput: ElementRef;
   ngControl: NgControl;
-  onTouched;
   public disabled: boolean;
+  public focus = false;
   onChangeValue = (_: any) => { };
+  onTouched = (_: any) => { };
   constructor(private inj: Injector,
               private handlerError: HandlerErrorService) { }
 
@@ -26,8 +28,18 @@ export class InputComponent implements OnInit, ControlValueAccessor {
     this.ngControl = this.inj.get(NgControl);
   }
 
+  ngAfterViewInit(): void {
+    this.ngControl.valueChanges
+      .subscribe(value => {
+        if (value) {
+          this.focus = false;
+        }
+      });
+  }
+
   public onChange(value) {
     this.onChangeValue(value);
+    this.onTouched(true);
   }
 
   registerOnChange(fn: any): void {
@@ -43,14 +55,18 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(obj: string): void {
-    console.log(obj);
     if (obj) {
       this.simpleInput.nativeElement.value = obj;
+      this.onTouched(false);
     }
   }
 
   public getErrorMessage(control: FormControl) {
     return this.handlerError.getError(control);
+  }
+
+  public toggleFocus() {
+    this.focus = !this.focus;
   }
 
 }

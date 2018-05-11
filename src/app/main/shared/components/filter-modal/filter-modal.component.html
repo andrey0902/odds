@@ -1,6 +1,46 @@
 <h2 mat-dialog-title class="title"> {{data?.title ? data.title : 'New filter'}}
 </h2>
 <mat-dialog-content>
+  <form class="form-filter"
+        [formGroup]="filterForm"
+        (submit)="onSubmit(filterForm)">
+    <div class="form-name">
+      <label for="name" class="filter-name">
+        Name
+      </label>
+      <odds-input formControlName="name" id="name"></odds-input>
+    </div>
+    <div class="form-bookmakers">
+      <label for="bookmaker" class="filter-bookmaker">
+        Bookmakers
+      </label>
+      <odds-select [options]="selectOptions"
+                   [settings]="selectSettings"
+                   formControlName="bookmakers"
+                   id="bookmaker"
+      ></odds-select>
+    </div>
+    <div class="form-markets">
+      <label for="markets" class="filter-bookmaker">
+        Markets
+      </label>
+      <odds-select [options]="marketsOptions"
+                   [settings]="selectSettings"
+                   formControlName="markets"
+                   id="markets"
+      ></odds-select>
+    </div>
+    <div class="form-odds-range">
+      <label for="odds-range" class="filter-bookmaker">
+        Odds range
+      </label>
+      <!--<odds-select [options]="marketsOptions"-->
+                   <!--[settings]="selectSettings"-->
+                   <!--formControlName="markets"-->
+                   <!--id="odds-range"-->
+      <!--&gt;</odds-select>-->
+    </div>
+  </form>
   <!--<form class="sign-up"-->
         <!--[formGroup]="retrieveForm"-->
         <!--(submit)="onSubmit($event, retrieveForm)"-->
