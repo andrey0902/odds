@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, forwardRef, Injector, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, forwardRef, Injector, Input, OnInit, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 import { HandlerErrorService } from '../services/handler-error.service';
 export const INPUT_NUMBER_ACCESSOR: any = {
@@ -13,6 +13,9 @@ export const INPUT_NUMBER_ACCESSOR: any = {
   providers: [INPUT_NUMBER_ACCESSOR]
 })
 export class InputNumberComponent implements OnInit, ControlValueAccessor, AfterViewInit {
+  @Input() public decimal = false;
+  @Input() public negative = false;
+  public step = 1;
   @ViewChild('inputNumber') public inputNumber: ElementRef;
   ngControl: NgControl;
   public disabled: boolean;
@@ -42,7 +45,13 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor, After
   }
 
   public increment() {
-    this.countValue = +this.countValue + 1;
+    if (this.decimal) {
+      this.step = 0.1;
+    }
+
+    this.countValue =  this.countValue + this.step;
+    this.countValue = parseFloat(this.countValue.toFixed(1));
+
     console.log('increment', this.countValue);
     this.setValue(this.countValue);
     this.onChangeValue(this.countValue);
@@ -50,7 +59,17 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor, After
   }
 
   public decrement() {
-    this.countValue = +this.countValue - 1;
+
+    if (+this.countValue <= 0 && !this.negative) {
+      return;
+    }
+
+    if (this.decimal) {
+      this.step = 0.1;
+    }
+    this.countValue = +this.countValue - this.step;
+
+    this.countValue = parseFloat(this.countValue.toFixed(1));
     console.log('decrement', this.countValue);
     this.setValue(this.countValue);
     this.onChangeValue(this.countValue);
@@ -58,9 +77,10 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor, After
   }
 
   writeValue(obj: any): void {
-    if (obj) {
-      this.setValue(obj);
-      this.countValue = obj;
+    const number = parseFloat(obj);
+    if (number) {
+      this.setValue(number);
+      this.countValue = number;
     }
   }
 
@@ -76,8 +96,12 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor, After
     this.disabled = isDisabled;
   }
 
-  public toggleFocus() {
-    this.focus = !this.focus;
+  public onBlur() {
+    this.focus = false;
+  }
+
+  public onFocus() {
+    this.focus = true;
   }
 
   public setValue(value) {

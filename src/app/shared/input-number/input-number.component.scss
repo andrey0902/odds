@@ -8,6 +8,10 @@
   border: 1px solid $gray-border;
   border-radius: 4px;
   box-sizing: border-box;
+
+  &.active {
+    border-color: $orange;
+  }
 }
 
 .number-input {

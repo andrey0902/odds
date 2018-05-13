@@ -14,6 +14,7 @@ import {FormControl, Validators} from '@angular/forms';
 export class MainComponent implements OnInit {
   panelOpenState = false;
   public control;
+  public control1;
   public listFilter: FilterModel[];
   constructor(private authService: AuthCoreService,
               private mainService: MainService,
@@ -22,6 +23,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.getFilters();
     this.control = new FormControl('0', [Validators.required]);
+    this.control1 = new FormControl('0', [Validators.required]);
   }
 
   public logOut() {
@@ -31,7 +33,10 @@ export class MainComponent implements OnInit {
   public openModal(): void {
     console.log('open modal');
     const dialogRef = this.dialog.open(FilterModalComponent, {
-      minWidth: '250px'
+      minWidth: '250px',
+      maxWidth: '500px',
+      width: '350px',
+      height: '85vh'
     });
   }
 

@@ -46,9 +46,18 @@ export class FilterModalComponent implements OnInit {
   public selectSettings = {
     showCheckAll: true,
     closeOnClickOutside: true,
-    dynamicTitleMaxItems: 3,
+    dynamicTitleMaxItems: 7,
     isMultiple: true,
     isShoveChecked: true,
+    maxHeight: '200px'
+  };
+  public selectSettings2 = {
+    showCheckAll: true,
+    closeOnClickOutside: true,
+    dynamicTitleMaxItems: 7,
+    isMultiple: true,
+    isShoveChecked: true,
+    maxHeight: '150px'
   };
   constructor(public dialogRef: MatDialogRef<FilterModalComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
@@ -85,7 +94,8 @@ export class FilterModalComponent implements OnInit {
 
   public onSubmit(form: FormGroup) {
     if (form.valid) {
-      console.log('send to server create filter');
+      console.log('send to server create filter', form.value);
+      this.dialogRef.close();
     }
   }
 

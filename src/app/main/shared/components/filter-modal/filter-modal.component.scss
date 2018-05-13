@@ -1,5 +1,10 @@
 @import "../../../../../styles/variables";
 
+:host {
+  display: block;
+  height: 100%;
+}
+
 .title {
   color: $accent-gray;
   position: relative;
@@ -20,11 +25,51 @@
 
 .form {
 
+  &-filter {
+    margin-top: 20px;
+  }
+
+  &-group-field {
+    display: flex;
+  }
+
   &-name {
 
   }
 
    &-bookmakers, &-markets {
     padding-bottom: 1.25em;
+  }
+}
+
+.mat-dialog-content {
+  height: calc(100% - 50px);
+}
+
+label, .filter-title {
+  color: $accent-gray;
+  padding-bottom: 3px;
+  display: block;
+}
+
+.field {
+
+  &-from, &-to  {
+    flex-shrink: 0;
+    width: 50%;
+    display: flex;
+    align-items: center;
+
+    label {
+      padding-right: 8px;
+    }
+  }
+
+  &-from {
+
+  }
+
+  &-to {
+    padding-left: 10px;
   }
 }

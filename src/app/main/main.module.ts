@@ -9,16 +9,18 @@ import { ListFilterComponent } from './list-filter/list-filter.component';
 import { MatButtonModule, MatDialogModule, MatExpansionModule } from '@angular/material';
 import { MainService } from './shared/services/main.service';
 import { FilterModalComponent } from './shared/components/filter-modal/filter-modal.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {InputModule} from '../shared/input/input.module';
 import { SelectModule } from '../shared/select/select.module';
 import { InputNumberModule } from '../shared/input-number/input-number.module';
+import { ButtonModule } from '../shared/button/button.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     MainRouterModule,
     HeaderModule,
     MatButtonModule,
@@ -27,6 +29,7 @@ import { InputNumberModule } from '../shared/input-number/input-number.module';
     InputModule,
     SelectModule,
     InputNumberModule,
+    ButtonModule,
   ],
   declarations: [
     MainComponent,

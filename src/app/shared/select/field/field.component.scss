@@ -4,11 +4,15 @@
 }
 
 .field {
-  border: 1px solid #dadada;
+  border: 1px solid $gray-border;
   border-radius: 4px;
   padding: 7px 20px 7px 10px;
   cursor: pointer;
   position: relative;
+
+  &.active {
+    border: 1px solid $orange;
+  }
 
   &-title {
     display: block;
@@ -37,3 +41,5 @@
 .hide {
   opacity: 0;
 }
+
+

@@ -1,4 +1,8 @@
-<div class="wrapper">
+<div class="wrapper"
+     [class.active]="focus"
+     oddsClickOutSide
+     (clickOutside)="onBlur()"
+>
   <input type="number"
          #inputNumber
          class="number-input"
@@ -6,10 +10,11 @@
          [class.disabled]="disabled"
          (keyup)="onChange(inputNumber.value)"
          (change)="onChange(inputNumber.value)"
-         (blur)="toggleFocus()"
+         (focus)="onFocus()"
+
   >
   <div class="button-wrapper">
-    <button type="button" class="up" (click)="increment()">
+    <button type="button" class="up" (click)="increment(); onFocus();">
         <span class="field-marc"
         >
           <span class="rotate">
@@ -25,7 +30,7 @@
           </span>
       </span>
     </button>
-    <button type="button" class="down" (click)="decrement()" >
+    <button type="button" class="down" (click)="decrement(); onFocus();" >
         <span class="field-marc"
               >
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

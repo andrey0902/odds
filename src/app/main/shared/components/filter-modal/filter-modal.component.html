@@ -3,7 +3,9 @@
 <mat-dialog-content>
   <form class="form-filter"
         [formGroup]="filterForm"
-        (submit)="onSubmit(filterForm)">
+        (ngSubmit)="onSubmit(filterForm)"
+        #form="ngForm"
+  >
     <div class="form-name">
       <label for="name" class="filter-name">
         Name
@@ -21,26 +23,70 @@
       ></odds-select>
     </div>
     <div class="form-markets">
-      <label for="markets" class="filter-bookmaker">
+      <label for="markets" class="filter-markets">
         Markets
       </label>
       <odds-select [options]="marketsOptions"
-                   [settings]="selectSettings"
+                   [settings]="selectSettings2"
                    formControlName="markets"
                    id="markets"
       ></odds-select>
     </div>
     <div class="form-odds-range">
-      <label for="odds-range" class="filter-bookmaker">
+      <p class="filter-title">
         Odds range
-      </label>
-      <!--<odds-select [options]="marketsOptions"-->
-                   <!--[settings]="selectSettings"-->
-                   <!--formControlName="markets"-->
-                   <!--id="odds-range"-->
-      <!--&gt;</odds-select>-->
+      </p>
+      <div class="form-group-field" formGroupName="oddsRange">
+        <div class="field-from">
+          <label for="range-form">From</label>
+          <odds-input-number id="range-form" formControlName="from"></odds-input-number>
+        </div>
+        <div class="field-to">
+          <label for="range-to">To</label>
+          <odds-input-number id="range-to" formControlName="to"></odds-input-number>
+        </div>
+      </div>
+    </div>
+    <div class="form-odds-range">
+      <p class="filter-title">
+        Edge
+      </p>
+      <div class="form-group-field" formGroupName="edge">
+        <div class="field-from">
+          <label for="edge-form">From</label>
+          <odds-input-number id="edge-form" formControlName="from"></odds-input-number>
+        </div>
+        <div class="field-to">
+          <label for="edge-to">To</label>
+          <odds-input-number id="edge-to" formControlName="to"></odds-input-number>
+        </div>
+      </div>
+    </div>
+    <div class="form-odds-range">
+      <p class="filter-title">
+        Time
+      </p>
+      <div class="form-group-field" formGroupName="time">
+        <div class="field-from">
+          <label for="time-form">From</label>
+          <odds-input-number id="time-form" formControlName="from"></odds-input-number>
+        </div>
+        <div class="field-to">
+          <label for="time-to">To</label>
+          <odds-input-number id="time-to" formControlName="to"></odds-input-number>
+        </div>
+      </div>
     </div>
   </form>
+  <mat-dialog-actions>
+    <odds-button [invalid]="filterForm.invalid"
+                 [valid]="filterForm.valid"
+                 [fortSize]="'16px'"
+                 [text]="'Save'"
+                 [type]="'submit'"
+                 (click)="form.ngSubmit.emit()"
+    ></odds-button>
+  </mat-dialog-actions>
   <!--<form class="sign-up"-->
         <!--[formGroup]="retrieveForm"-->
         <!--(submit)="onSubmit($event, retrieveForm)"-->
