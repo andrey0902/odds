@@ -2,5 +2,16 @@
   display: block;
 }
 .wrapper {
+  padding-bottom: 1.25em;
   position: relative;
 }
+
+.mat-form-field-subscript-wrapper {
+  position: absolute;
+  width: 100%;
+  font-size: 75%;
+  margin-top: .54167em;
+  top: calc(100% - 1.66667em);
+}
+
+

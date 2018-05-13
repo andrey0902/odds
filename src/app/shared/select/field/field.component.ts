@@ -9,6 +9,7 @@ export class FieldComponent implements OnInit {
   @Input() title;
   @Input() disabled;
   @Input() isVisible: boolean;
+  @Input() hasError: boolean;
   constructor() {}
 
   ngOnInit() {

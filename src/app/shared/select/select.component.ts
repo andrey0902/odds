@@ -1,7 +1,8 @@
-import { Component, ElementRef, EventEmitter, forwardRef, HostListener, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, forwardRef, HostListener, Injector, Input, OnInit } from '@angular/core';
 import { IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts } from './shared/type';
 import { SelectService } from './shared/service/select.service';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
+import { HandlerErrorService } from '../services/handler-error.service';
 
 @Component({
   selector: 'odds-select',
@@ -15,7 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       multi: true,
     }]
 })
-export class SelectComponent implements OnInit, ControlValueAccessor {
+export class SelectComponent implements OnInit, AfterViewInit, ControlValueAccessor {
   @Input() settings: IMultiSelectSettings;
   @Input() texts: IMultiSelectTexts;
   @Input() public options: IMultiSelectOption[];
@@ -75,13 +76,16 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   public disabled = false;
   public dropdownOpened = new EventEmitter();
   public dropdownClosed = new EventEmitter();
+  public ngControl: FormControl;
   focusedItem: IMultiSelectOption | undefined;
   private _isVisible = false;
+  public focus = false;
   private _workerDocClicked = false;
   _focusBack = false;
-  onTouched;
   constructor(private el: ElementRef,
-              private service: SelectService) {
+              private service: SelectService,
+              private inject: Injector,
+              private handlerError: HandlerErrorService) {
     this.settings = this.defaultSettings;
 
     this.texts = this.defaultTexts;
@@ -89,7 +93,21 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
     this.title = this.texts.defaultTitle || '';
+    this.getControl();
     // console.log('settings', this.settings);
+  }
+
+  public getControl() {
+    this.ngControl = this.inject.get(NgControl);
+  }
+
+  public hideError() {
+    if (this.ngControl) {
+      this.ngControl.valueChanges
+        .subscribe(value =>  {
+          this.focus = false;
+        });
+    }
   }
 
   @HostListener('document: click', ['$event.target'])
@@ -101,6 +119,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
        this.isVisible = false;
        this._focusBack = true;
        this.dropdownClosed.emit();
+       this.focus = true;
      }
   }
 
@@ -125,8 +144,10 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
   }
 
   public propagateChange = (_: any) => { };
+  onTouched = (_: any) => { };
 
   public toggleDropdown(e: Event) {
+    this.onTouched(true);
     if (this.disabled) {
       return;
     }
@@ -138,6 +159,7 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
 
     this.isVisible = !this.isVisible;
     this.isVisible ? this.dropdownOpened.emit() : this.dropdownClosed.emit();
+    this.focus = this.isVisible ? !this.isVisible : false;
     this.focusedItem = undefined;
   }
 
@@ -157,5 +179,13 @@ export class SelectComponent implements OnInit, ControlValueAccessor {
         this.title = string;
       }
     }
+  }
+
+  public getErrorMessage(control: FormControl) {
+    return this.handlerError.getError(control);
+  }
+
+  ngAfterViewInit(): void {
+    this.hideError();
   }
 }

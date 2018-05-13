@@ -5,7 +5,8 @@
            (change)="onChange(simpleInput.value)"
            [disabled]="disabled"
            [class.disabled]="disabled"
-           (blur)="toggleFocus()"
+           [class.hasError]="ngControl?.invalid && ngControl.touched && focus"
+           (blur)="blurFocus()"
     >
   </div>
   <div class="mat-form-field-subscript-wrapper " *ngIf="ngControl?.invalid && ngControl.touched && focus">

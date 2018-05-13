@@ -1,6 +1,6 @@
 :host {
   display: block;
-  margin-top: 4px;
+  margin-top: -15px;
   position: absolute;
   left: 0;
   top: 100%;
@@ -23,6 +23,7 @@
   padding: 10px 15px;
   align-items: center;
   cursor: pointer;
+  flex-shrink: 0;
 
   &:hover {
     transition: .3s ease;

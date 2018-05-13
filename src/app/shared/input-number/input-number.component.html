@@ -1,20 +1,26 @@
-<div class="wrapper"
-     [class.active]="focus"
-     oddsClickOutSide
-     (clickOutside)="onBlur()"
->
-  <input type="number"
-         #inputNumber
-         class="number-input"
-         [disabled]="disabled"
-         [class.disabled]="disabled"
-         (keyup)="onChange(inputNumber.value)"
-         (change)="onChange(inputNumber.value)"
-         (focus)="onFocus()"
-
+<div class="number-input-wrapper">
+  <div class="wrapper"
+       [class.active]="focus"
+       oddsClickOutSide
+       (clickOutside)="onBlur()"
+       [class.hasError]="ngControl?.invalid && ngControl.touched && !focus"
   >
-  <div class="button-wrapper">
-    <button type="button" class="up" (click)="increment(); onFocus();">
+    <!--<pre>-->
+     <!--error:  {{ngControl?.invalid && ngControl.touched && !focus }}-->
+     <!--error!focus:  {{ !focus }}-->
+    <!--</pre>-->
+    <input type="number"
+           #inputNumber
+           class="number-input"
+           [disabled]="disabled"
+           [class.disabled]="disabled"
+           (keyup)="onChange(inputNumber.value)"
+           (change)="onChange(inputNumber.value)"
+           (focus)="onFocus()"
+
+    >
+    <div class="button-wrapper">
+      <button type="button" class="up" (click)="increment(); onFocus();">
         <span class="field-marc"
         >
           <span class="rotate">
@@ -29,10 +35,10 @@
         </svg>
           </span>
       </span>
-    </button>
-    <button type="button" class="down" (click)="decrement(); onFocus();" >
+      </button>
+      <button type="button" class="down" (click)="decrement(); onFocus();" >
         <span class="field-marc"
-              >
+        >
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
        width="10px" height="10px" viewBox="0 0 451.847 451.847" style="enable-background:new 0 0 451.847 451.847;"
        xml:space="preserve">
@@ -43,6 +49,10 @@
       </g>
     </svg>
   </span>
-    </button>
+      </button>
+    </div>
+  </div>
+  <div class="mat-form-field-subscript-wrapper " *ngIf="ngControl?.invalid && ngControl.touched && !focus">
+    <p class="mat-error" >{{getErrorMessage(ngControl)}}</p>
   </div>
 </div>

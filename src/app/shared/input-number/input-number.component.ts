@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, forwardRef, Injector, Input, OnInit, ViewChild } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 import { HandlerErrorService } from '../services/handler-error.service';
 export const INPUT_NUMBER_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -31,12 +31,14 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor, After
   }
 
   ngAfterViewInit(): void {
-    this.ngControl.valueChanges
-      .subscribe(value => {
-        if (value) {
-          this.focus = false;
-        }
-      });
+    if (this.ngControl) {
+      this.ngControl.valueChanges
+        .subscribe(value => {
+          if (value) {
+            this.focus = false;
+          }
+        });
+    }
   }
 
   public onChange(value) {
@@ -106,6 +108,10 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor, After
 
   public setValue(value) {
     this.inputNumber.nativeElement.value = value;
+  }
+
+  public getErrorMessage(control: FormControl) {
+    return this.handlerError.getError(control);
   }
 
 }

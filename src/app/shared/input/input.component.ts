@@ -29,12 +29,14 @@ export class InputComponent implements OnInit, ControlValueAccessor, AfterViewIn
   }
 
   ngAfterViewInit(): void {
-    this.ngControl.valueChanges
-      .subscribe(value => {
-        if (value) {
-          this.focus = false;
-        }
-      });
+    if (this.ngControl) {
+      this.ngControl.valueChanges
+        .subscribe(value => {
+          if (value) {
+            this.focus = false;
+          }
+        });
+    }
   }
 
   public onChange(value) {
@@ -65,8 +67,8 @@ export class InputComponent implements OnInit, ControlValueAccessor, AfterViewIn
     return this.handlerError.getError(control);
   }
 
-  public toggleFocus() {
-    this.focus = !this.focus;
+  public blurFocus() {
+    this.focus = true;
   }
 
 }

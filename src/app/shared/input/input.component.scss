@@ -15,6 +15,10 @@
     outline: none;
     border-color: $orange;
   }
+
+  &.hasError {
+    border-color: $error;
+  }
 }
 .wrapper  {
   padding-bottom: 1.25em;
@@ -32,7 +36,7 @@
 }
 
 .mat-error {
-  color: #f44336;
+  color: $error;
   text-align: left;
   font-size: 100%;
 }

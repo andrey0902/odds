@@ -12,6 +12,10 @@
   &.active {
     border-color: $orange;
   }
+
+  &.hasError {
+    border-color: $error;
+  }
 }
 
 .number-input {
@@ -133,4 +137,21 @@ input::-webkit-inner-spin-button {
   cursor: not-allowed;
   opacity: 0.5;
   pointer-events: none;
+}
+
+.mat-error {
+  color: $error;
+  text-align: left;
+  font-size: 100%;
+}
+.mat-form-field-subscript-wrapper {
+  position: absolute;
+  width: 100%;
+  margin-top: .54167em;
+  top: calc(100% - 1.66667em);
+}
+
+.number-input-wrapper {
+  position: relative;
+  padding-bottom: 1.25em;
 }

@@ -3,6 +3,7 @@
              (click)="toggleDropdown($event)"
              [disabled]="disabled"
              [isVisible]="isVisible"
+             [hasError]="ngControl?.invalid && ngControl.touched && focus"
   ></odds-field>
   <odds-list *ngIf="isVisible"
             [maxHeight]="settings.maxHeight"
@@ -14,4 +15,7 @@
             [settings]="settings"
             (isChecked)="onSelect($event)"
   ></odds-list>
+  <div class="mat-form-field-subscript-wrapper " *ngIf="ngControl?.invalid && ngControl.touched && focus">
+    <p class="mat-error" >{{getErrorMessage(ngControl)}}</p>
+  </div>
 </div>
