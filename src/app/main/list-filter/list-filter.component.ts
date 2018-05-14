@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FilterModel } from '../shared/models/filter.model';
 import { BookmakerModel } from '../shared/models/bookmaker.model';
 import { MarketModel } from '../shared/models/market.model';
@@ -12,6 +12,7 @@ import { MainService } from '../shared/services/main.service';
 export class ListFilterComponent implements OnInit {
   panelOpenState = false;
   public applyFilter = null;
+  @Output() public editFilter = new EventEmitter();
   @Input() public filters: FilterModel[];
   constructor(private service: MainService) { }
 
@@ -22,8 +23,9 @@ export class ListFilterComponent implements OnInit {
     return this.service.getBookmakers(list);
   }
 
-  public edit() {
+  public edit(filter: FilterModel) {
     console.log('need open edit modal');
+    this.editFilter.emit(filter);
   }
 
   public apply(id) {

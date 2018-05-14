@@ -4,6 +4,7 @@ import { AuthCoreService } from '../../core/services/auth-core.service';
 import { HandlerErrorService } from '../../shared/services/handler-error.service';
 import { ProfileService } from '../../core/services/profile.service';
 import { Router } from '@angular/router';
+import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angular5-social-login';
 
 @Component({
   selector: 'odds-sign-up',
@@ -17,7 +18,8 @@ export class SignUpComponent implements OnInit {
               private authService: AuthCoreService,
               private handlerError: HandlerErrorService,
               private profileService: ProfileService,
-              private router: Router) { }
+              private router: Router,
+              private socialAuthService: AuthService) { }
 
   ngOnInit() {
     this.createForm();
@@ -45,6 +47,22 @@ export class SignUpComponent implements OnInit {
           console.log('response', response);
         });
     }
+  }
+
+  public socialSignIn(socialPlatform: string) {
+    let socialPlatformProvider;
+    if (socialPlatform === 'facebook') {
+      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+    } else if (socialPlatform === 'google') {
+      socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+    }
+
+    this.socialAuthService.signIn(socialPlatformProvider).then(
+      (userData) => {
+        console.log(socialPlatform + ' sign in data : ' , userData);
+        // Now sign-in with userData
+      }
+    );
   }
 
 }

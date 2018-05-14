@@ -92,5 +92,33 @@ mat-action-row {
   max-height: 250px;
   display: block;
   padding-top: 10px;
-  margin-left: 42%;
+  margin-left: 40%;
+}
+
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {
+  .arrow-img_position {
+    margin-left: 50%;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+  .arrow-img_position {
+    margin-left: 4%;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .arrow-img_position {
+    margin-left: 20%;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .arrow-img_position {
+    margin-left: 42%;
+  }
 }

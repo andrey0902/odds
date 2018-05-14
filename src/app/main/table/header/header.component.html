@@ -1,0 +1,79 @@
+<div class="wrapper">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="table-ceil">
+        <p class="table-text">
+          Event
+        </p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="table-ceil">
+        <p class="table-text">
+          Value bet
+        </p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="table-ceil">
+        <p class="table-text">
+
+
+          <mat-menu #menuSort="matMenu" yPosition="below" [overlapTrigger]="false">
+            <div class="menu-title">
+              Sorting
+            </div>
+            <button mat-menu-item class="btn-font" (click)="filterStart = 'small-big'">
+              <mat-icon class="last_list">filter_list</mat-icon>
+              Smallest - Largest</button>
+            <button mat-menu-item class="btn-font" (click)="filterStart = 'big-small'">
+              <mat-icon class="filter_list">filter_list</mat-icon>
+              Largest - Smallest</button>
+          </mat-menu>
+
+          <button mat-icon-button [matMenuTriggerFor]="menuSort" class="btn-toggle-text">
+            Starts in
+            <mat-icon *ngIf="filterStart" class="toggle-icon" [class.last_list_sort]="filterStart === 'small-big'">filter_list</mat-icon>
+          </button>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="table-ceil">
+        <p class="table-text">
+          Bookmaker
+        </p>
+      </div>
+    </div>
+    <div class="col-md-1">
+      <div class="table-ceil">
+        <p class="table-text">
+
+          <mat-menu #appMenu="matMenu" yPosition="below" [overlapTrigger]="false">
+            <div class="menu-title">
+              Sorting
+            </div>
+            <button mat-menu-item class="btn-font" (click)="filterEdge = 'small-big'">
+              <mat-icon class="last_list">filter_list</mat-icon>
+              Smallest - Largest</button>
+            <button mat-menu-item class="btn-font" (click)="filterEdge = 'big-small'">
+              <mat-icon class="filter_list">filter_list</mat-icon>
+              Largest - Smallest</button>
+          </mat-menu>
+
+          <button mat-icon-button [matMenuTriggerFor]="appMenu" class="btn-toggle-text">
+            Edge
+            <mat-icon *ngIf="filterEdge" class="toggle-icon" [class.last_list_sort]="filterEdge === 'small-big'">filter_list</mat-icon>
+          </button>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="table-ceil">
+        <p class="table-text">
+          Stake
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -30,13 +30,26 @@ export class MainComponent implements OnInit {
     this.authService.logOut();
   }
 
-  public openModal(): void {
+  public openModal(filter?): void {
     console.log('open modal');
-    const dialogRef = this.dialog.open(FilterModalComponent, {
+    const dialogRef = this.dialog.open(FilterModalComponent,  {
+      data: filter ? filter : null,
       minWidth: '250px',
       maxWidth: '500px',
       width: '350px',
-      height: '85vh'
+      maxHeight: '630px',
+    });
+
+    dialogRef.afterClosed().subscribe(value => {
+      console.log('value form', value);
+      if (value) {
+        if (value.edit) {
+          console.log('edit filter', value.form);
+        } else {
+          console.log('create filter', value.form);
+          this.listFilter.push(value.form);
+        }
+      }
     });
   }
 
@@ -48,6 +61,10 @@ export class MainComponent implements OnInit {
         console.log('res', res);
         this.listFilter = res;
       });
+  }
+
+  public editFilter(event) {
+    this.openModal(event);
   }
 
 }

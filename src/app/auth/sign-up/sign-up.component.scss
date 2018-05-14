@@ -1,6 +1,13 @@
 @import "./../../../styles/variables";
+
+.wrapper {
+  margin-top: 100px;
+}
+
 .trial {
   text-align: center;
+  margin: 25px 0;
+  font-size: 22px;
 
   &-text {
     color: $gray-text;
@@ -20,6 +27,7 @@
 
   &-google {
     background: $red-button;
+    margin-top: 15px;
   }
 
   &-submit {
@@ -34,6 +42,7 @@
 
 .or {
   text-align: center;
+  padding: 20px 0;
 
   &-text {
     display: inline-block;
@@ -80,4 +89,11 @@ mat-form-field {
 
 .confirm-text {
   color: $gray-text;
+  font-size: 14px;
+  padding-bottom: 15px;
+}
+
+.have-account {
+  font-size: 14px;
+  padding-top: 15px;
 }

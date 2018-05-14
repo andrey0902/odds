@@ -13,7 +13,6 @@ export class ItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // console.log('item option0', this.option);
   }
 
   public onChecked(option): void {

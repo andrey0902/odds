@@ -14,13 +14,14 @@ export const INPUT_NUMBER_ACCESSOR: any = {
 })
 export class InputNumberComponent implements OnInit, ControlValueAccessor, AfterViewInit {
   @Input() public decimal = false;
+  @Input() public decimalOdds = false;
   @Input() public negative = false;
   public step = 1;
   @ViewChild('inputNumber') public inputNumber: ElementRef;
   ngControl: NgControl;
   public disabled: boolean;
   public focus = false;
-  public countValue = 0;
+  public countValue: number | string = 0;
   onChangeValue = (_: any) => { };
   onTouched = (_: any) => { };
   constructor(private inj: Injector,
@@ -44,15 +45,18 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor, After
   public onChange(value) {
     this.onChangeValue(value);
     this.onTouched(true);
+    this.countValue = value;
   }
 
   public increment() {
     if (this.decimal) {
-      this.step = 0.1;
+      this.step = 0.01;
     }
 
-    this.countValue =  this.countValue + this.step;
-    this.countValue = parseFloat(this.countValue.toFixed(1));
+    this.countValue =  +this.countValue + this.step;
+
+    console.log('increment before', this.countValue);
+      this.countValue = this.countValue.toFixed(2);
 
     console.log('increment', this.countValue);
     this.setValue(this.countValue);
@@ -67,11 +71,11 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor, After
     }
 
     if (this.decimal) {
-      this.step = 0.1;
+      this.step = 0.01;
     }
     this.countValue = +this.countValue - this.step;
 
-    this.countValue = parseFloat(this.countValue.toFixed(1));
+    this.countValue = +this.countValue.toFixed(2);
     console.log('decrement', this.countValue);
     this.setValue(this.countValue);
     this.onChangeValue(this.countValue);
@@ -80,7 +84,7 @@ export class InputNumberComponent implements OnInit, ControlValueAccessor, After
 
   writeValue(obj: any): void {
     const number = parseFloat(obj);
-    if (number) {
+    if (number || number === 0) {
       this.setValue(number);
       this.countValue = number;
     }

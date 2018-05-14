@@ -40,7 +40,7 @@
           </p>
           <mat-action-row>
             <div class="action-block">
-              <button mat-button class="btn edit" (click)="edit()">Edit</button>
+              <button mat-button class="btn edit" (click)="edit(filter)">Edit</button>
               <button mat-button class="btn apply" (click)="apply(filter.id)">Apply</button>
             </div>
           </mat-action-row>
@@ -52,6 +52,11 @@
 
 <ng-template #noContent>
   <div class="no-content">
+    <!--<div class="row">-->
+      <!--<div class="offset-md-3 col col-md-5">-->
+     <!---->
+      <!--</div>-->
+    <!--</div>-->
     <div class="arrow-img">
       <img [src]="'./assets/images/home-page/arrow.png'" class="arrow-img_position" alt="img">
     </div>

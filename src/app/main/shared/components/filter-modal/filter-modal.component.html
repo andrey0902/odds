@@ -39,32 +39,32 @@
       <div class="form-group-field" formGroupName="oddsRange">
         <div class="field-from">
           <label for="range-form">From</label>
-          <odds-input-number id="range-form" formControlName="from"></odds-input-number>
+          <odds-input-number id="range-form" formControlName="from" [decimal]="true"></odds-input-number>
         </div>
         <div class="field-to">
           <label for="range-to">To</label>
-          <odds-input-number id="range-to" formControlName="to"></odds-input-number>
+          <odds-input-number id="range-to" formControlName="to" [decimal]="true"></odds-input-number>
         </div>
       </div>
     </div>
     <div class="form-odds-range">
       <p class="filter-title">
-        Edge
+        Edge %
       </p>
       <div class="form-group-field" formGroupName="edge">
         <div class="field-from">
           <label for="edge-form">From</label>
-          <odds-input-number id="edge-form" formControlName="from"></odds-input-number>
+          <odds-input-number id="edge-form" formControlName="from" [decimal]="true"></odds-input-number>
         </div>
         <div class="field-to">
           <label for="edge-to">To</label>
-          <odds-input-number id="edge-to" formControlName="to"></odds-input-number>
+          <odds-input-number id="edge-to" formControlName="to" [decimal]="true"></odds-input-number>
         </div>
       </div>
     </div>
     <div class="form-odds-range">
       <p class="filter-title">
-        Time
+        Minutes until start
       </p>
       <div class="form-group-field" formGroupName="time">
         <div class="field-from">
@@ -79,13 +79,15 @@
     </div>
   </form>
   <mat-dialog-actions>
-    <odds-button [invalid]="filterForm.invalid"
-                 [valid]="filterForm.valid"
-                 [fortSize]="'16px'"
-                 [text]="'Save'"
-                 [type]="'submit'"
-                 (click)="form.ngSubmit.emit()"
-    ></odds-button>
+    <div class="action">
+      <odds-button [invalid]="filterForm.invalid"
+                   [valid]="filterForm.valid"
+                   [fortSize]="'16px'"
+                   [text]="'Save'"
+                   [type]="'submit'"
+                   (click)="form.ngSubmit.emit()"
+      ></odds-button>
+    </div>
   </mat-dialog-actions>
   <!--<form class="sign-up"-->
         <!--[formGroup]="retrieveForm"-->

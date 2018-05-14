@@ -14,9 +14,13 @@
 
     </div>
     <div class="row justify-content-center">
-      <div class="col-4">
-        <button mat-raised-button class="btn-width btn-facebook">Sign up with Facebook (Confirm T&C)</button>
-        <button mat-raised-button class="btn-width btn-google">Sign up wish Google (Confirm T&C)</button>
+      <div class="col-12 col-lg-4 col-sm-7">
+        <button mat-raised-button class="btn-width btn-facebook"
+                (click)="socialSignIn('facebook')"
+        >Sign up with Facebook (Confirm T&C)</button>
+        <button mat-raised-button class="btn-width btn-google"
+                (click)="socialSignIn('google')"
+        >Sign up wish Google (Confirm T&C)</button>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -29,7 +33,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-4">
+      <div class="col-12 col-lg-4 col-sm-7">
         <div class="wrapper-form">
           <form class="sign-up" [formGroup]="signUp" (submit)="onSubmit($event, signUp)">
             <mat-form-field>

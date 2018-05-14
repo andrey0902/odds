@@ -13,8 +13,12 @@
 
 .block {
 
-  &-table-result, &-filter {
+   &-filter {
     padding: 15px 0 15px 15px;
+  }
+
+  &-table-result {
+    padding: 15px 0 15px 0;
   }
 
   &-filter {
@@ -31,10 +35,19 @@
   background-color: $orange !important;
   padding: 10px 10px;
   font-size: 18px;
+  border-radius: 4px;
 
   &-width {
     width: 100%;
     color: #fff;
     font-weight: bold;
   }
+}
+
+mat-dialog-container {
+  padding-bottom: 0;
+}
+
+.mat-dialog-container {
+  padding-bottom: 0;
 }

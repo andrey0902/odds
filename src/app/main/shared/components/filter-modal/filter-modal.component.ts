@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./filter-modal.component.scss']
 })
 export class FilterModalComponent implements OnInit {
+  public edit = false;
   public filterForm: FormGroup;
   public selectOptions = [
     {
@@ -70,6 +71,11 @@ export class FilterModalComponent implements OnInit {
         console.log(this.filterForm.get('name'));
         console.log(value);
       });
+    if (this.data) {
+      this.patchForm(this.data);
+      this.edit = true;
+    }
+    console.log('this.data', this.data);
   }
 
   public createForm() {
@@ -92,10 +98,33 @@ export class FilterModalComponent implements OnInit {
     });
   }
 
+  public patchForm(data) {
+    this.filterForm.patchValue({
+      name: data.name,
+      bookmakers: data.bookmakers,
+      markets: data.markets,
+      oddsRange: {
+        from: data.oddsRange.from,
+        to: data.oddsRange.to
+      },
+      edge: {
+        from: data.edge.from,
+        to: data.edge.to
+      },
+      time: {
+        from: data.time.from,
+        to: data.time.to
+      }
+    });
+  }
+
   public onSubmit(form: FormGroup) {
     if (form.valid) {
       console.log('send to server create filter', form.value);
-      this.dialogRef.close();
+      this.dialogRef.close({
+        form: form.value,
+        edit: this.edit
+      });
     }
   }
 

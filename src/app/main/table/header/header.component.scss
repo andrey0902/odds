@@ -1,0 +1,81 @@
+@import "../../../../styles/variables";
+
+:host {
+  display: block;
+}
+
+.wrapper {
+  background-color: $dark-blue;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  padding: 0 15px;
+}
+
+.table {
+
+  &-ceil {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+  }
+}
+.mat-icon-button {
+  font-weight: bold;
+}
+.btn-font {
+  color: $gray-text;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.filter_list {
+  font-size: 16px;
+  padding-top: 3px;
+  margin-right: -3px;
+}
+
+.toggle-icon {
+  font-size: 16px;
+  padding-top: 0;
+  margin-right: -3px;
+  color: $gray-text;
+}
+
+.last_list {
+  font-size: 16px;
+  transform: rotate(180deg);
+  margin-left: -8px;
+  margin-top: -7px;
+  margin-right: 5px;
+}
+
+.last_list_sort {
+  font-size: 16px;
+  transform: rotate(180deg);
+}
+
+.menu-title {
+  user-select: none;
+  outline: 0;
+  border: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  line-height: 48px;
+  height: 48px;
+  padding: 0 16px;
+  text-align: left;
+  text-decoration: none;
+  position: relative;
+  color: $gray-title;
+  font-weight: bold;
+}
+
+.btn-toggle-text, .table-text {
+  color: $light-white;
+  font-size: 16px;
+  font-family: OpenSansBold;
+}

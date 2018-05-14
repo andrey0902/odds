@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-4 col-sm-8">
+      <div class="col-12 col-lg-4 col-sm-7">
         <button mat-raised-button class="btn-width btn-facebook"
                 (click)="socialSignIn('facebook')"
         >Log in with Facebook</button>
@@ -57,7 +57,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-4 col-sm-8">
+      <div class="col-12 col-lg-4 col-sm-7">
         <form [formGroup]="signIn" (submit)="onSubmit(signIn)">
           <div class="server-error"
                *ngIf="serverError"
@@ -97,7 +97,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-4 col-sm-8">
+      <div class="col-12 col-lg-4 col-sm-7">
         <p class="no-account">
           Don't have an AppName account yet? <a class="link" [routerLink]="['/auth/sign-up']">Sign up here</a>
         </p>
