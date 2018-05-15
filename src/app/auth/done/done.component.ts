@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../core/services/profile.service';
 import { Router } from '@angular/router';
+import { AuthCoreService } from '../../core/services/auth-core.service';
 
 @Component({
   selector: 'odds-done',
@@ -8,10 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./done.component.scss']
 })
 export class DoneComponent implements OnInit {
-  public userEmail = 'aaa@com.ua';
+  public userEmail: string;
   constructor(private profileService: ProfileService,
-              private router: Router) {
-    // this.userEmail = this.profileService.emailUser;
+              private router: Router,
+              private authService: AuthCoreService) {
+    this.userEmail = this.profileService.emailUser;
   }
 
   ngOnInit() {
@@ -19,5 +21,7 @@ export class DoneComponent implements OnInit {
 
   public resendEmail() {
     console.log('need to send on the back userEmail', this.userEmail);
+    this.authService.resendEmail(this.userEmail)
+      .subscribe();
   }
 }

@@ -36,6 +36,11 @@
       <div class="col-12 col-lg-4 col-sm-7">
         <div class="wrapper-form">
           <form class="sign-up" [formGroup]="signUp" (submit)="onSubmit($event, signUp)">
+            <div class="server-error"
+                 *ngIf="serverError"
+            >
+              Oops! Email has already been taken.
+            </div>
             <mat-form-field>
               <input matInput placeholder="Name" formControlName="name" type="text">
               <mat-error *ngIf="signUp.get('name').invalid">{{getErrorMessage(signUp.get('name'))}}</mat-error>

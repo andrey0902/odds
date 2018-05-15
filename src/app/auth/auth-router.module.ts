@@ -23,7 +23,7 @@ import { ResetGuard } from './services/reset-guard';
         path: 'done',
         component: DoneComponent,
         canActivate: [
-          // GuardService
+          GuardService
         ]
       },
       {

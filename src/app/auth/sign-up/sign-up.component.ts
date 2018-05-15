@@ -5,6 +5,7 @@ import { HandlerErrorService } from '../../shared/services/handler-error.service
 import { ProfileService } from '../../core/services/profile.service';
 import { Router } from '@angular/router';
 import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angular5-social-login';
+import { OddsValidators } from '../../shared/services/odds-validators.service';
 
 @Component({
   selector: 'odds-sign-up',
@@ -13,6 +14,7 @@ import { AuthService, FacebookLoginProvider, GoogleLoginProvider } from 'angular
 })
 export class SignUpComponent implements OnInit {
   public signUp: FormGroup;
+  public serverError = null;
   public hide = true;
   constructor(private fb: FormBuilder,
               private authService: AuthCoreService,
@@ -28,8 +30,17 @@ export class SignUpComponent implements OnInit {
   public createForm() {
     this.signUp = this.fb.group({
       name: [null, [Validators.minLength(3), Validators.maxLength(50), Validators.required]],
-      email: [null, []],
-      password: [null, []]
+      email: [null, [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(50),
+        OddsValidators.checkEmail
+      ]],
+      password: [null, [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(50)
+      ]]
     });
   }
 
@@ -41,10 +52,13 @@ export class SignUpComponent implements OnInit {
     event.preventDefault();
     if (form.valid) {
       this.authService.signUp(form.value)
-        .subscribe(response => {
-          this.profileService.emailUser = 'test@com.ua';
+        .subscribe((response: any) => {
+          this.serverError = true;
+          this.profileService.emailUser = response.email;
           this.router.navigate(['/auth/done']);
           console.log('response', response);
+        }, error => {
+          this.serverError = true;
         });
     }
   }

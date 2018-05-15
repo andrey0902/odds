@@ -66,8 +66,8 @@
           </div>
           <div class="form-name">
             <mat-form-field>
-              <input matInput placeholder="Email address" formControlName="name" type="email">
-              <mat-error *ngIf="signIn.get('name').invalid">{{getErrorMessage(signIn.get('name'))}}</mat-error>
+              <input matInput placeholder="Email address" formControlName="email" type="email">
+              <mat-error *ngIf="signIn.get('email').invalid">{{getErrorMessage(signIn.get('email'))}}</mat-error>
             </mat-form-field>
           </div>
           <div class="form-password">

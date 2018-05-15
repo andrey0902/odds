@@ -41,24 +41,32 @@ export class SignInComponent implements OnInit {
 
   public createForm() {
     this.signIn = this.fb.group({
-      name: ['', [
+      email: ['', [
         Validators.required,
-        Validators.minLength(5),
+        Validators.minLength(6),
         Validators.maxLength(50),
         OddsValidators.checkEmail
       ]],
       password: ['', [
         Validators.required,
-        Validators.minLength(5),
+        Validators.minLength(6),
         Validators.maxLength(50)
       ]]
     });
   }
 
-  public login() {
-    this.authService.login();
-    console.log(this.authService.getUser());
-    this.router.navigate(['/']);
+  public login(value) {
+    this.authService.login(value)
+      .subscribe(response => {
+        console.log(response);
+        console.log(this.authService.getUser());
+        this.serverError = null;
+        this.router.navigate(['/']);
+      }, error => {
+        console.error(error);
+        this.serverError = error.error.full_messages;
+      });
+
   }
 
   public logOut() {
@@ -72,8 +80,9 @@ export class SignInComponent implements OnInit {
   public onSubmit(form: FormGroup) {
     console.log(form.value);
     console.log('form', form);
-    this.serverError = true;
-    this.login();
+    if (form.valid) {
+      this.login(form.value);
+    }
   }
 
   public socialSignIn(socialPlatform: string) {

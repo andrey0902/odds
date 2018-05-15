@@ -1,5 +1,5 @@
 import { AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider } from 'angular5-social-login';
-import { SocialConsig } from '../configs/social-consig';
+import { SocialConsig } from '../configs/social-config';
 
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
