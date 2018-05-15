@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'odds-header-table',
@@ -6,11 +6,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Output() public changeFilter = new EventEmitter();
   @Input() filterStart;
   @Input() filterEdge;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public sendFilter(filter) {
+    this.changeFilter.emit(filter);
   }
 
 }

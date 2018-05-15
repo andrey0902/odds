@@ -1,0 +1,144 @@
+@import "../../../../../styles/variables";
+
+.title {
+  color: $accent-gray;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 24px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -24px;
+    left: -24px;
+    border-bottom: 1px solid #ecebee;
+  }
+}
+
+.closed {
+  border: none;
+  background-color: transparent;
+  color: $gray-text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.event-title {
+  font-family: OpenSansBold;
+  font-weight: bold;
+}
+
+.best-value {
+  font-family: OpenSans;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.content-wrapper {
+  padding: 0 15px;
+
+  .col-5 {
+    padding-left: 0;
+  }
+  .col-2 {
+    padding: 0;
+  }
+
+  .col {
+    padding: 0;
+  }
+}
+
+.simple {
+
+  &-tile {
+    padding-top: 15px;
+    color: $gray-title;
+    font-family: OpenSansBold;
+    font-size: 13px;
+    text-align: left;
+  }
+
+  &-value {
+    padding-top: 8px;
+    color: $gray-text;
+    font-family: OpenSansLight;
+    font-size: 13px;
+    text-align: left;
+  }
+}
+
+.bankroll {
+  padding-top: 35px;
+
+  &-field {
+    position: relative;
+    margin-top: 10px;
+  }
+
+  &-prefix {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    font-family: OpenSans;
+    color: $gray-text;
+  }
+
+  &-input {
+    padding:10px 10px 10px 20px;
+    border: 1px solid $gray-border;
+    border-radius: 4px;
+    width: 100%;
+    font-family: OpenSans;
+    color: $gray-text;
+    font-size: 14px;
+
+    &:focus {
+      border-color: $orange;
+      outline: none;
+    }
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.risk {
+  padding-top: 35px;
+}
+
+.result {
+  border: 1px solid $dark-blue;
+
+  &-title {
+    padding: 10px 7px;
+    background-color: $dark-blue;
+    color: #fff;
+    font-family: OpenSans;
+    font-size: 13px;
+  }
+
+  &-value {
+    padding: 18px 7px;
+    font-size: 26px;
+    color: $orange;
+    font-family: OpenSansBold;
+  }
+}

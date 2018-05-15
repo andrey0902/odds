@@ -1,3 +1,92 @@
 <div class="wrapper">
-  <odds-header-table [filterEdge]="filterEdge" [filterStart]="filterStart"></odds-header-table>
+  <odds-header-table [filterEdge]="filterEdge" [filterStart]="filterStart" (changeFilter)="applyFilter($event)"></odds-header-table>
+  <div class="wrapper-row-table">
+    <ng-container *ngIf="list?.length; else noResult">
+
+      <div class="row row-style" *ngFor="let item of list">
+      <div class="col-md-3">
+        <div class="table-ceil">
+          <p class="table-text table-event" matTooltip="Tooltip!" [matTooltipPosition]="'above'">
+            Event name Event name Event name Event name Event name Event name
+          </p>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="table-ceil">
+          <p class="table-text table-light-text">
+            Value bet name
+          </p>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="table-ceil">
+          <p class="table-text table-light-text">
+            Starts in time
+          </p>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="table-ceil">
+          <p class="table-text table-light-text">
+            Bookmaker
+          </p>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="table-ceil">
+          <p class="table-text table-light-text">
+            Edge %
+          </p>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="table-ceil table-align">
+          <p class="table-text">
+            <button mat-button class="table-calculate" (click)="openModalCalc(item)">
+              Calculate
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+    </ng-container>
+  </div>
 </div>
+<ng-template #noResult>
+  <div class="row">
+    <div class="col">
+      <ng-container *ngIf="!noFilter; else noList">
+        <div class="wrapper-no-filter">
+          <div class="img-island">
+            <img [src]="'/assets/images/home-page/island.png'" class="img-view" alt="no-content">
+          </div>
+          <h2 class="no-title-text">
+            Its empty is here!
+          </h2>
+          <p class="no-description-text">
+            But once you have set up some filters this area will populate with potential bets.
+          </p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #noList>
+  <div class="row">
+    <div class="col">
+        <div class="wrapper-no-filter">
+          <div class="img-robot">
+            <img [src]="'/assets/images/home-page/android.png'" class="img-android" alt="no-content">
+          </div>
+          <h2 class="no-title-text">
+            Oops, no results Found!
+          </h2>
+          <p class="no-description-text">
+            As soon as selections that match your criteria
+            become available they will show here.
+          </p>
+        </div>
+    </div>
+  </div>
+</ng-template>

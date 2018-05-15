@@ -13,6 +13,7 @@
         <div class="block-filter">
           <odds-list-filter
                             (editFilter)="editFilter($event)"
+                            [filters]="listFilter"
           ><!--[filters]="listFilter"-->
             <button type="button" mat-raised-button class="btn btn-width"
                     (click)="openModal()"
@@ -24,7 +25,7 @@
       </div>
       <div class="col-md-9">
         <div class="block-table-result">
-          <odds-table></odds-table>
+          <odds-table [list]="list"  [noFilter]="listFilter?.length"></odds-table><!--[list]="list" listFilter?.length-->
           <!--<odds-input-number [formControl]="control"></odds-input-number>-->
           <!--<odds-input-number [formControl]="control1" [negative]="true" [decimal]="true"></odds-input-number>-->
         </div>

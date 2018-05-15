@@ -1,0 +1,78 @@
+<div mat-dialog-title class="title">
+  <div class="section-description">
+    <h2 class="event-title"> Event
+    </h2>
+    <p class="best-value">
+      Best value
+    </p>
+  </div>
+  <button class="closed" [mat-dialog-close]="true"><i class="material-icons">close</i></button>
+</div>
+<!--<mat-dialog-content>-->
+  <div class="content-wrapper">
+    <div class="row">
+      <div class="col-5">
+        <p class="simple-tile">
+          Bookmaker
+        </p>
+        <p class="simple-value">
+          test bookmaker
+        </p>
+      </div>
+      <div class="col-5">
+        <p class="simple-tile">
+          Time until start
+        </p>
+        <p class="simple-value">
+          test teme
+        </p>
+      </div>
+      <div class="col-2">
+        <p class="simple-tile">
+          Edge
+        </p>
+        <p class="simple-value">
+          2%
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <p class="simple-tile bankroll">
+          What is your bankroll?
+        </p>
+        <div class="bankroll-field">
+          <span class="bankroll-prefix">$</span>
+          <input type="number" class="bankroll-input">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="simple-tile risk">
+          What is your risk level?
+        </p>
+        <div class="risk-field">
+          <odds-ranges></odds-ranges>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="result">
+          <p class="result-title">
+            Your recommended stake
+          </p>
+          <p class="result-value">
+        <span class="currency">
+          $
+        </span>
+            26
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--</mat-dialog-content>-->
+

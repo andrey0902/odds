@@ -6,7 +6,9 @@ import { HeaderModule } from '../shared/header/header.module';
 import { MainComponent } from './main.component';
 import { FilterComponent } from './list-filter/filter/filter.component';
 import { ListFilterComponent } from './list-filter/list-filter.component';
-import { MatButtonModule, MatDialogModule, MatExpansionModule, MatIconModule, MatMenuModule } from '@angular/material';
+import {
+  MatButtonModule, MatDialogModule, MatExpansionModule, MatIconModule, MatMenuModule, MatTooltipModule
+} from '@angular/material';
 import { MainService } from './shared/services/main.service';
 import { FilterModalComponent } from './shared/components/filter-modal/filter-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +18,8 @@ import { InputNumberModule } from '../shared/input-number/input-number.module';
 import { ButtonModule } from '../shared/button/button.module';
 import { TableComponent } from './table/table.component';
 import { HeaderComponent } from './table/header/header.component';
+import { RecommendStakeComponent } from './shared/components/recommend-stake/recommend-stake.component';
+import { RangesModule } from '../shared/ranges/ranges.module';
 
 
 @NgModule({
@@ -30,10 +34,12 @@ import { HeaderComponent } from './table/header/header.component';
     MatDialogModule,
     MatMenuModule,
     MatIconModule,
+    MatTooltipModule,
     InputModule,
     SelectModule,
     InputNumberModule,
     ButtonModule,
+    RangesModule,
   ],
   declarations: [
     MainComponent,
@@ -41,13 +47,15 @@ import { HeaderComponent } from './table/header/header.component';
     ListFilterComponent,
     FilterModalComponent,
     TableComponent,
-    HeaderComponent
+    HeaderComponent,
+    RecommendStakeComponent
   ],
   providers: [
     MainService
   ],
   entryComponents: [
-    FilterModalComponent
+    FilterModalComponent,
+    RecommendStakeComponent
   ]
 })
 export class MainModule { }

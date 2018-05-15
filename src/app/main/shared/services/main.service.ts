@@ -9,7 +9,7 @@ import { MarketModel } from '../models/market.model';
 
 @Injectable()
 export class MainService {
-
+  public filter = null;
   constructor(private http: HttpClient) { }
 
   public getFilters() {
@@ -41,6 +41,34 @@ export class MainService {
     });
 
     return str;
+  }
+
+  public checkSort(list: any, type: string) {
+    switch (type) {
+      case 'nearFar':
+        this.sort(list, 'time', 'small');
+        break;
+      case 'farNear':
+        this.sort(list, 'time', 'big');
+        break;
+      case 'smallBig':
+        this.sort(list, 'edge', 'small');
+        break;
+      case 'bigSmall':
+        this.sort(list, 'edge', 'big');
+        break;
+    }
+  }
+
+  public sort(list: any, key: string, type: string) {
+    list.sort((a, b) => {
+      if (type === 'small') {
+        return a[key] - b[key];
+      } else if (type === 'big') {
+        return b[key] - a[key];
+      }
+    });
+    return list;
   }
 
 }

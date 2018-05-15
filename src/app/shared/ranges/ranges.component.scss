@@ -23,20 +23,23 @@ mat-slider {
 .slider {
   position: relative;
   //width: 200px;
-  height: 34px;
-  margin: 3rem auto;
+  height: 26px;
+  margin: 35px 0 0 0;
   display: flex;
   flex-direction: column;
 
   &-value {
     margin-right: 3px;
+    font-family: OpenSans;
+    color: $gray-text;
+    font-size: 13px;
   }
 }
 
 .slider-output {
   display: block;
   position: absolute;
-  top: -68%;
+  top: -100%;
   width: 35px;
   text-align: center;
   left: 50%;
@@ -78,7 +81,7 @@ mat-slider {
 
 .slider-track {
   height: 3px;
-  background-color: #ddd;
+  background-color: $gray-border;
   border-radius: .25rem;
 }
 
@@ -91,9 +94,11 @@ mat-slider {
 
 .value {
   position: absolute;
-  top: -68%;
+  top: -100%;
   margin: 0;
-  font-size: 10px;
+  font-size: 13px;
+  font-family: OpenSans;
+  color: $gray-text;
 }
 
 .min {

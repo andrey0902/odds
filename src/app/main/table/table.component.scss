@@ -1,3 +1,101 @@
+@import "../../../styles/variables";
 :host {
   display: block;
+}
+
+.wrapper-row-table {
+  padding: 0 15px;
+  background-color: #fff;
+  height: calc(90vh - 170px);
+  overflow-y: auto;
+}
+.row-style {
+  border-bottom: 1px solid $gray-border;
+}
+
+.table {
+
+  &-ceil {
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  &-event {
+    color: $gray-title;
+    font-family: OpenSansBold;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-align {
+    justify-content: center;
+  }
+
+  &-light-text {
+    color: $gray-title;
+    font-family: OpenSans;
+    font-size: 14px;
+  }
+
+  &-calculate {
+    font-family: OpenSansBold;
+    font-size: 14px;
+    color: $orange;
+
+    &:hover {
+      background-color: lighten(#E6690A, 40%);
+    }
+
+  }
+}
+
+
+.img {
+
+  &-island {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &-robot {
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &-view {
+    max-width: 300px;
+    object-fit: contain;
+  }
+
+  &-android {
+    max-width: 110px;
+    object-fit: contain;
+  }
+}
+
+.no {
+
+  &-title-text {
+    color: $gray-text;
+    font-size: 26px;
+    font-family: OpenSansSemibold;
+    text-align: center;
+    padding-bottom: 15px;
+    margin-top: -30px;
+  }
+
+  &-description-text {
+    color: $gray-text;
+    font-size: 16px;
+    line-height: 24px;
+    font-family: OpenSans;
+    max-width: 450px;
+    text-align: center;
+    margin: 0 auto;
+  }
 }

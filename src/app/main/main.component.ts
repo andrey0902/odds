@@ -12,7 +12,8 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  panelOpenState = false;
+  public list;
+  public panelOpenState = false;
   public control;
   public control1;
   public listFilter: FilterModel[];
@@ -24,6 +25,28 @@ export class MainComponent implements OnInit {
     this.getFilters();
     this.control = new FormControl('0', [Validators.required]);
     this.control1 = new FormControl('0', [Validators.required]);
+    this.list = [
+      { time: 1, edge: 2},
+      { time: 20, edge: 51},
+      { time: 25, edge: 33},
+      { time: 30, edge: 15},
+      { time: 10, edge: 45},
+      { time: 18, edge: 23},
+      { time: 12, edge: 14},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+      { time: 15, edge: 17},
+    ];
   }
 
   public logOut() {
