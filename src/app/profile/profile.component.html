@@ -1,4 +1,129 @@
 <odds-header></odds-header>
-<p>
-  profile works!
-</p>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-2 offset-2">
+        <odds-navigation class="navigation"></odds-navigation>
+      </div>
+      <div class="col col-md-5">
+        <mat-card class="example-card">
+          <mat-card-header class="card-header">
+            <mat-card-title class="card-title">My Profile</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <form class="profile" #form="ngForm" (ngSubmit)="submit(profileForm)" [formGroup]="profileForm">
+              <div class="profile-name group">
+                <p class="simple-tile group-label">
+                  Name
+                </p>
+                <div class="group-field">
+                  <!--<input type="text" class="group-input">-->
+                  <odds-input formControlName="name"></odds-input>
+                </div>
+              </div>
+              <div class="profile-name group">
+                <p class="simple-tile group-label">
+                  Email
+                </p>
+                <div class="group-field">
+                  <!--<input type="text" class="group-input">-->
+                  <odds-input formControlName="email"></odds-input>
+                </div>
+              </div>
+              <div class="profile-name group">
+                <p class="simple-tile group-label">
+                  Preferred odds format
+                </p>
+                <div class="group-field">
+                  <odds-select [settings]="selectSettings"
+                               [options]="selectOptions1"
+                               formControlName="oddsFormat"
+                  ></odds-select>
+                </div>
+              </div>
+              <div class="profile-name group">
+                <p class="simple-tile group-label">
+                  Currency used
+                </p>
+                <div class="group-field">
+                  <odds-select [settings]="selectSettings"
+                               [options]="selectOptions"
+                               formControlName="currency"
+                  ></odds-select>
+                </div>
+              </div>
+              <ng-container *ngIf="planeMajor">
+                <div class="profile-name group">
+                  <p class="simple-tile group-label">
+                    Address
+                  </p>
+                  <div class="group-field">
+                    <!--<input type="text" class="group-input">-->
+                    <odds-input formControlName="address"></odds-input>
+                  </div>
+                </div>
+                <div class="profile-name group">
+                  <p class="simple-tile group-label">
+                    City
+                  </p>
+                  <div class="group-field">
+                    <!--<input type="text" class="group-input">-->
+                    <odds-input formControlName="city"></odds-input>
+                  </div>
+                </div>
+                <div class="group-form-field">
+                  <div class="field-state">
+                    <div class="profile-name group">
+                      <p class="simple-tile group-label">
+                        State/Province
+                      </p>
+                      <div class="group-field">
+                        <odds-select [settings]="selectSettings"
+                                     [options]="optionsCity"
+                                     formControlName="state"
+                        ></odds-select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field-zip">
+                    <div class="profile-name group">
+                      <p class="simple-tile group-label">
+                        Zip code
+                      </p>
+                      <div class="group-field">
+                        <!--<input type="text" class="group-input">-->
+                        <odds-input formControlName="zip"></odds-input>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="profile-name group">
+                  <p class="simple-tile group-label">
+                    Country
+                  </p>
+                  <div class="group-field">
+                    <odds-select [settings]="selectSettings"
+                                 [options]="optionsCountry"
+                                 formControlName="country"
+                    ></odds-select>
+                  </div>
+                </div>
+              </ng-container>
+            </form>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="action">
+              <odds-button [invalid]="profileForm.invalid"
+                           [valid]="profileForm.valid"
+                           [fortSize]="'16px'"
+                           [text]="'Save'"
+                           [type]="'submit'"
+                           (click)="form.ngSubmit.emit()"
+              ></odds-button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -116,10 +116,7 @@ export class SelectComponent implements OnInit, AfterViewInit, ControlValueAcces
     if (!this.settings.closeOnClickOutside) { return; }
 
      if (!this.el.nativeElement.contains(target)) {
-       this.isVisible = false;
-       this._focusBack = true;
-       this.dropdownClosed.emit();
-       this.focus = true;
+       this.closet();
      }
   }
 
@@ -166,6 +163,9 @@ export class SelectComponent implements OnInit, AfterViewInit, ControlValueAcces
   public onSelect(event) {
     this.updateTitle();
      this.propagateChange(this.service.getModel());
+     if (this.settings.closeOnSelect) {
+       this.closet();
+     }
   }
 
   private updateTitle() {
@@ -187,5 +187,12 @@ export class SelectComponent implements OnInit, AfterViewInit, ControlValueAcces
 
   ngAfterViewInit(): void {
     this.hideError();
+  }
+
+  public closet() {
+    this.isVisible = false;
+    this._focusBack = true;
+    this.dropdownClosed.emit();
+    this.focus = true;
   }
 }

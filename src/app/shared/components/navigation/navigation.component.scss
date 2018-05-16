@@ -1,0 +1,16 @@
+@import "../../../../styles/variables";
+
+.navigation {
+  display: block;
+  text-align: left;
+  color: $gray-text;
+  font-family: OpenSans;
+  border-radius: 4px;
+  margin-bottom: 5px;
+
+  &.active {
+    background-color: $gray-text;
+    font-family: OpenSansBold;
+    color: #fff;
+  }
+}
