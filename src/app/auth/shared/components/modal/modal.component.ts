@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { OddsValidators } from '../../../../shared/services/odds-validators.service';
 import { HandlerErrorService } from '../../../../shared/services/handler-error.service';
+import { AuthCoreService } from '../../../../core/services/auth-core.service';
 
 @Component({
   selector: 'odds-modal',
@@ -17,7 +18,8 @@ export class ModalComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<ModalComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
               private fb: FormBuilder,
-              private handlerError: HandlerErrorService) { }
+              private handlerError: HandlerErrorService,
+              private authServise: AuthCoreService) { }
 
   ngOnInit() {
     this.createForm();
@@ -51,7 +53,15 @@ export class ModalComponent implements OnInit {
     event.preventDefault();
     // TODO: need do method send to server and handler error when error iset intialize serverError
     console.log('value', form.value);
-    this.serverError = true;
-    this.successSend = true;
+
+    if (form.valid) {
+      this.authServise.resetPassword(form.value)
+        .subscribe(response => {
+          this.successSend = true;
+        },
+          error => {
+            this.serverError = true;
+          });
+    }
   }
 }

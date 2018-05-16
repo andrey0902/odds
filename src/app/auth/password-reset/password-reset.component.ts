@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HandlerErrorService } from '../../shared/services/handler-error.service';
 import { OddsValidators } from '../../shared/services/odds-validators.service';
+import { AuthCoreService } from '../../core/services/auth-core.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'odds-password-reset',
@@ -14,17 +16,42 @@ export class PasswordResetComponent implements OnInit {
   public hide = true;
   public hideConfirm = true;
   private key: string;
+  private email: string;
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private fb: FormBuilder,
-              private handlerError: HandlerErrorService) { }
+              private handlerError: HandlerErrorService,
+              private authService: AuthCoreService,
+              public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getKey();
+    this.createForm();
   }
 
   public onSubmit(form: FormGroup): void {
     if (form.valid) {
-      console.log('form.value', form.value);
+      const params = {
+        email: this.email,
+        'reset_password_token': this.key,
+      };
+       this.authService.sendNewPassword(form.value.password, params)
+         .subscribe(result => {
+           this.snackBar.open('Password changed successfully', 'success', {
+             duration: 2000,
+           });
+           setTimeout(() => {
+             this.router.navigate(['/auth/sign-in']);
+           }, 2500);
+         }, error => {
+           this.snackBar.open(error.error.full_messages
+             , 'Error', {
+               duration: 2000,
+             });
+           setTimeout(() => {
+             this.router.navigate(['/auth/sign-up']);
+           }, 2500);
+         });
     }
   }
 
@@ -36,8 +63,7 @@ export class PasswordResetComponent implements OnInit {
     this.route.paramMap.subscribe(param => {
 
       this.key = param.get('key');
-      this.createForm();
-      this.pathForm();
+      this.email = param.get( 'email');
     });
   }
 
@@ -53,15 +79,8 @@ export class PasswordResetComponent implements OnInit {
         Validators.minLength(5),
         Validators.maxLength(50)
       ]],
-    key: null
     },
       { validator: OddsValidators.passwordMatch });
-  }
-
-  private pathForm() {
-    this.passwordForm.patchValue({
-      key: this.key
-    });
   }
 
 }

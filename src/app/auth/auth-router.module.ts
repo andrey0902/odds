@@ -31,7 +31,7 @@ import { ResetGuard } from './services/reset-guard';
         component: ConfirmEmailComponent
       },
       {
-        path: 'password_reset/:key',
+        path: 'password_reset/:key/:email',
         component: PasswordResetComponent,
         canActivate: [
           ResetGuard

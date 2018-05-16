@@ -22,7 +22,6 @@ export class ConfirmEmailComponent implements OnInit {
   ngOnInit() {
     this.authService.sendVerifyEmail({confirmation_token: this.key})
       .subscribe(response => {
-        console.log(response);
         this.snackBar.open('Confirm email', 'success', {
           duration: 2000,
         });
@@ -31,8 +30,6 @@ export class ConfirmEmailComponent implements OnInit {
         }, 2500);
         this.successful = response;
       }, error => {
-        console.log(error);
-        // do something and show user error
         this.snackBar.open(error.error.full_messages
           , 'Error', {
           duration: 2000,

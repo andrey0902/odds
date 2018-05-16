@@ -26,14 +26,11 @@ export class AuthCoreService {
     return this.http.post(ConfigService.signInPath, data)
       .do(response => {
         console.log('do', response);
-        SessionService.setUser({name: 'Denis Marshal',
-          id: 1,
-          password: 5555,
-          token: 66666});
+        SessionService.setUser(response);
         //  TODO need create method login with server and handler for add user for profile service
         this.profileService.user = this.getUser();
-        this.router.navigate(['/']);
-      })  .subscribe(response => {
+        // this.router.navigate(['/']);
+      }); /* .subscribe(response => {
         console.log(response);
         console.log(this.getUser());
 
@@ -46,7 +43,7 @@ export class AuthCoreService {
         this.router.navigate(['/']);
         console.error(error);
 
-      });
+      });*/
   }
 
   public logOut() {
@@ -60,8 +57,9 @@ export class AuthCoreService {
   }
 
   public getToken(): string {
-   // return  SessionService.getUser() ? SessionService.getUser().token : null;
-    return '66666';
+    // TODO: need write method for checked user when start app!!!!
+    return  SessionService.getUser() ? SessionService.getUser().access_token : null;
+   //  return '66666';
   }
 
   public signUp(data: any) {
@@ -76,6 +74,18 @@ export class AuthCoreService {
 
   public resendEmail(email) {
     return this.http.post(ConfigService.resendConfirmationEmailPath, {email});
+  }
+
+  public resetPassword(email) {
+    return this.http.post(ConfigService.resetPasswordPath, email );
+  }
+
+  public checkedAccess(params: any) {
+    return this.http.get(ConfigService.checkedAccessPath, {params: this.params(params)});
+  }
+
+  public sendNewPassword(password, params: any) {
+    return this.http.put(ConfigService.resetPasswordPath, {password}, {params: this.params(params)});
   }
 
   public params(filters) {

@@ -9,4 +9,6 @@ export class ConfigService {
   public static confirmEmailPath = `${ConfigService.basePathApi}v1/users/confirmation`;
   public static resendConfirmationEmailPath = `${ConfigService.basePathApi}v1/users/confirmation`;
   public static signInPath = `${ConfigService.basePathApi}v1/users/sign_in`;
+  public static resetPasswordPath = `${ConfigService.basePathApi}v1/users/password`;
+  public static checkedAccessPath = `${ConfigService.basePathApi}v1/users/password/check_reset_token`;
 }
