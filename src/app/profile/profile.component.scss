@@ -1,7 +1,9 @@
 @import "../../styles/variables";
 
 .wrapper {
-  margin-top: 100px;
+  padding-top: 60px;
+  min-height: calc(100vh - 50px);
+  background-color: $light-white;
 }
 
 .navigation {
