@@ -32,6 +32,20 @@ export class AuthCoreService {
           token: 66666});
         //  TODO need create method login with server and handler for add user for profile service
         this.profileService.user = this.getUser();
+        this.router.navigate(['/']);
+      })  .subscribe(response => {
+        console.log(response);
+        console.log(this.getUser());
+
+        this.router.navigate(['/']);
+      }, error => {
+        SessionService.setUser({name: 'Denis Marshal',
+          id: 1,
+          password: 5555,
+          token: 66666});
+        this.router.navigate(['/']);
+        console.error(error);
+
       });
   }
 

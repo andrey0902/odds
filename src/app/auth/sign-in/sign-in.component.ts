@@ -57,15 +57,15 @@ export class SignInComponent implements OnInit {
 
   public login(value) {
     this.authService.login(value)
-      .subscribe(response => {
-        console.log(response);
-        console.log(this.authService.getUser());
-        this.serverError = null;
-        this.router.navigate(['/']);
-      }, error => {
-        console.error(error);
-        this.serverError = error.error.full_messages;
-      });
+      // .subscribe(response => {
+      //   console.log(response);
+      //   console.log(this.authService.getUser());
+      //   this.serverError = null;
+      //   this.router.navigate(['/']);
+      // }, error => {
+      //   console.error(error);
+      //   this.serverError = error.error.full_messages;
+      // });
 
   }
 
