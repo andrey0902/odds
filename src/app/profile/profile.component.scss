@@ -1,0 +1,105 @@
+@import "../../styles/variables";
+
+.wrapper {
+  margin-top: 100px;
+}
+
+.navigation {
+  display: block;
+  padding-top: 24px;
+}
+
+.card {
+
+  &-title {
+    color: $accent-gray;
+    font-family: OpenSansSemibold;
+    font-size: 24px;
+  }
+
+  &-header {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: -24px;
+      left: -24px;
+      border-bottom: 1px solid $gray-border;/*#ecebee*/
+    }
+  }
+}
+
+.profile {
+  padding-top: 25px;
+}
+
+.simple {
+
+  &-tile {
+    padding-top: 15px;
+    color: $gray-title;
+    font-family: OpenSansBold;
+    font-size: 13px;
+    text-align: left;
+  }
+}
+
+.group {
+
+  &-label {
+    padding-top: 5px;
+  }
+
+
+  &-field {
+    position: relative;
+    margin-top: 10px;
+  }
+
+  &-input {
+    padding:10px 10px 10px 20px;
+    border: 1px solid $gray-border;
+    border-radius: 4px;
+    width: 100%;
+    font-family: OpenSans;
+    color: $gray-text;
+    font-size: 14px;
+
+    &:focus {
+      border-color: $orange;
+      outline: none;
+    }
+  }
+
+  &-form-field {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.field-state {
+  width: 65%;
+}
+
+.field-zip {
+  width: 30%;
+}
+.action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+mat-card-actions {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -8px;
+    left: -8px;
+    border-bottom: 1px solid $gray-border;/*#ecebee*/
+  }
+}

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, forwardRef, Injector, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, forwardRef, Injector, Input, OnInit, ViewChild } from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl} from '@angular/forms';
 import {HandlerErrorService} from '../services/handler-error.service';
 export const INPUT_VALUE_ACCESSOR: any = {
@@ -14,7 +14,7 @@ export const INPUT_VALUE_ACCESSOR: any = {
   providers: [INPUT_VALUE_ACCESSOR]
 })
 export class InputComponent implements OnInit, ControlValueAccessor, AfterViewInit {
-
+  @Input() public style;
   @ViewChild('simpleInput') public simpleInput: ElementRef;
   ngControl: NgControl;
   public disabled: boolean;
