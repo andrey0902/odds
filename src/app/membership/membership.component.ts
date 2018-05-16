@@ -12,4 +12,8 @@ export class MembershipComponent implements OnInit {
   ngOnInit() {
   }
 
+  public cancel() {
+  //  TODO: send request to server
+  }
+
 }
