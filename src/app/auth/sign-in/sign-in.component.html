@@ -58,7 +58,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-12 col-lg-4 col-sm-7">
-        <form [formGroup]="signIn" (submit)="onSubmit(signIn)">
+        <form [formGroup]="signIn" (submit)="onSubmit($event, signIn)">
           <div class="server-error"
                *ngIf="serverError"
           >

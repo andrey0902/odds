@@ -13,20 +13,25 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(public auth: AuthCoreService) {}
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log(`Token: ${this.auth.getToken()}`);
+    const token = this.auth.getToken();
+    let authReq;
 /*    request = request.clone({
       setHeaders: {
         Authorization: `X-Token-Authorization: ${this.auth.getToken()}`
       }
     });*/
-    const authReq = request.clone({headers: request.headers.set('X-Token-Authorization', this.auth.getToken())});
-    return next.handle(authReq).do((event: HttpEvent<any>) => {
+    if (token) {
+      authReq = request.clone({headers: request.headers.set('X-Token-Authorization', this.auth.getToken())});
+    }
+
+    return next.handle(authReq ? authReq : request).do((event: HttpEvent<any>) => {
       if (event instanceof HttpResponse) {
         // do stuff with response if you want
       }
     }, (err: any) => {
       if (err instanceof HttpErrorResponse) {
         if (err.status === 401 || err.status === 0) {
-          // redirect to the login route
+          // TODO: redirect to the login route
           // or show a modal
           console.log('@@@@@@');
         }

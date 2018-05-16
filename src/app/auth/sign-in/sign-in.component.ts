@@ -63,8 +63,8 @@ export class SignInComponent implements OnInit {
         this.serverError = null;
         this.router.navigate(['/']);
       }, error => {
-        console.error(error);
-        this.serverError = error.error.full_messages;
+        console.log(error);
+        // this.serverError = error.error;
       });
 
   }
@@ -77,7 +77,8 @@ export class SignInComponent implements OnInit {
     console.log('user', this.authService.getUser());
   }
 
-  public onSubmit(form: FormGroup) {
+  public onSubmit(event, form: FormGroup) {
+    event.preventDefault();
     console.log(form.value);
     console.log('form', form);
     if (form.valid) {
