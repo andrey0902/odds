@@ -4,6 +4,10 @@ import { PaymentRoutingModule } from './payment-routing.module';
 import { PaymentComponent } from './payment.component';
 import { SharedModule } from '../shared/shared.module';
 import { HeaderModule } from '../shared/header/header.module';
+import { MatButtonModule, MatCardModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputModule } from '../shared/input/input.module';
+import { ButtonModule } from '../shared/button/button.module';
 
 @NgModule({
   imports: [
@@ -11,6 +15,13 @@ import { HeaderModule } from '../shared/header/header.module';
     PaymentRoutingModule,
     HeaderModule,
     SharedModule,
+    SharedModule,
+    MatCardModule,
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    InputModule,
+    ButtonModule,
   ],
   declarations: [
     PaymentComponent
