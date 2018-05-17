@@ -1,5 +1,94 @@
 @import "../../styles/variables";
 
 .wrapper {
-  margin-top: 100px;
+  padding-top: 60px;
+  min-height: calc(100vh - 50px);
+  background-color: $light-white;
+}
+
+.navigation {
+  display: block;
+  padding-top: 24px;
+}
+
+.card {
+
+  &-title {
+    color: $accent-gray;
+    font-family: OpenSansSemibold;
+    font-size: 24px;
+  }
+
+  &-header {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: -24px;
+      left: -24px;
+      border-bottom: 1px solid $gray-border;/*#ecebee*/
+    }
+  }
+}
+
+.content-wrapper {
+  //padding-top: 25px;
+}
+
+.simple {
+
+  &-tile {
+    padding-top: 25px;
+    color: $gray-title;
+    font-family: OpenSansBold;
+    font-size: 13px;
+    text-align: left;
+  }
+}
+
+.group {
+
+  &-membership-description {
+    padding-top: 8px;
+
+    p {
+      font-family: OpenSansLight;
+      color: $gray-text;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-card-actions {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -8px;
+    left: -8px;
+    border-bottom: 1px solid $gray-border;/*#ecebee*/
+  }
+}
+
+.apply {
+  background-color: $orange;
+  color: #fff;
+  font-family: OpenSansBold;
+}
+
+.edit {
+  border: 1px solid $orange;
+  box-sizing: border-box;
+  color: $orange;
+  font-family: OpenSansBold;
 }

@@ -3,10 +3,57 @@
   <div class="container">
     <div class="row">
       <div class="col col-md-2 offset-2">
-        <odds-navigation></odds-navigation>
+        <odds-navigation class="navigation"></odds-navigation>
       </div>
       <div class="col col-md-5">
-
+        <mat-card class="example-card">
+          <mat-card-header class="card-header">
+            <mat-card-title class="card-title">Membership</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="content-wrapper">
+              <div class="group-membership">
+                <p class="simple-tile">
+                  Current membership level:
+                </p>
+                <div class="group-membership-description">
+                  <p>
+                    name membership Silver
+                  </p>
+                  <p>
+                    $ 20 per monthly
+                  </p>
+                </div>
+              </div>
+              <div class="group-membership">
+                <p class="simple-tile">
+                  Current payment plan:
+                </p>
+                <div class="group-membership-description">
+                  <p>
+                    Monthly
+                  </p>
+                </div>
+              </div>
+              <div class="group-membership">
+                <p class="simple-tile">
+                  Billing information:
+                </p>
+                <div class="group-membership-description">
+                  <p>
+                    Your next bill date is: Apr22, 18
+                  </p>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="action">
+              <button mat-button class="btn edit" (click)="cancel()">Cancel</button>
+              <button mat-button class="btn apply" routerLink="/membership" >Manage Subscription</button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
   </div>

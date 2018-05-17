@@ -26,6 +26,13 @@ import { AuthGuard } from './core/guard/auth-guard.service';
         ]
       },
       {
+        path: 'choose-membership',
+        loadChildren: './choose-membership/choose-membership.module#ChooseMembershipModule',
+        canActivate: [
+          AuthGuard
+        ]
+      },
+      {
         path: 'profile',
         loadChildren: './profile/profile.module#ProfileModule',
         canActivate: [
