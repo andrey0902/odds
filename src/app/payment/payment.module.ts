@@ -8,6 +8,7 @@ import { MatButtonModule, MatCardModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputModule } from '../shared/input/input.module';
 import { ButtonModule } from '../shared/button/button.module';
+import { DirectivesModule } from '../shared/directives/directives.module';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { ButtonModule } from '../shared/button/button.module';
     ReactiveFormsModule,
     InputModule,
     ButtonModule,
+    DirectivesModule,
   ],
   declarations: [
     PaymentComponent

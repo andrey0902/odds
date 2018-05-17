@@ -5,16 +5,19 @@ import { OddsValidators } from './services/odds-validators.service';
 import { HandlerErrorService } from './services/handler-error.service';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { RouterModule } from '@angular/router';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatCardModule } from '@angular/material';
+import { InfoCardComponent } from './components/info-card/info-card.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     MatButtonModule,
+    MatCardModule,
   ],
   declarations: [
-    NavigationComponent
+    NavigationComponent,
+    InfoCardComponent,
   ],
   exports: [
     NavigationComponent
@@ -23,6 +26,9 @@ import { MatButtonModule } from '@angular/material';
     RegExpService,
     OddsValidators,
     HandlerErrorService
+  ],
+  entryComponents: [
+    InfoCardComponent
   ]
 })
 export class SharedModule { }

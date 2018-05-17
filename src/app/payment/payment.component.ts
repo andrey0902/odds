@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegExpService } from '../shared/services/reg-exp.service';
 import { Mask } from '../shared/models/mask';
+import { InfoCardComponent } from '../shared/components/info-card/info-card.component';
 
 @Component({
   selector: 'odds-payment',
@@ -9,6 +10,7 @@ import { Mask } from '../shared/models/mask';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
+  public infoComponent;
   public formCard: FormGroup;
   public addCard = null;
   public textMaskNumber;
@@ -27,6 +29,7 @@ export class PaymentComponent implements OnInit {
     this.textMaskNumber = Mask.cardNumber;
     this.textMaskExpiration = Mask.expiration;
     this.maskCVC = Mask.CVC;
+    this.infoComponent = InfoCardComponent;
   }
 
   ngOnInit() {

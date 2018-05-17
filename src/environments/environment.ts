@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  basePath: 'http://172.16.101.19:3001/',
-  basePathApi: 'http://172.16.101.19:3001/api/', /*172.16.101.53*/
+  basePath: 'http://localhost:3000/',
+  basePathApi: 'http://localhost:3000/api/', /*172.16.101.53*/
   WS: 'none'
 };

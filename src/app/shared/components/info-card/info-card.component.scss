@@ -1,0 +1,48 @@
+@import "../../../../styles/variables";
+.wrapper-info {
+  position: absolute;
+  width: 450px;
+  top: 17px;
+  left: -200px;
+  z-index: 10;
+}
+
+.cvc {
+
+  &-img {
+    padding-top: 15px;
+    width: 70%;
+    padding-left: 10px;
+  }
+
+  &-title, &-text {
+    color: $gray-text;
+    font-family: OpenSans;
+    font-size: 14px;
+  }
+
+  &-text {
+    padding-top: 10px;
+  }
+
+  &-card-title {
+    padding-top: 15px;
+    color: $gray-title;
+    font-family: OpenSansBold;
+    font-size: 15px;
+    text-align: left;
+  }
+
+  &-information {
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.no-line {
+
+  &:after {
+    border: none;
+  }
+}
