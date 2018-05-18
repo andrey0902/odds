@@ -1,0 +1,92 @@
+@import "../../styles/variables";
+
+.wrapper {
+  padding-top: 60px;
+  min-height: calc(100vh - 50px);
+  background-color: $light-white;
+}
+
+.h1 {
+  color: $accent-gray;
+  font-size: 26px;
+  text-align: center;
+  margin: 30px 0 40px 0;
+  font-family: OpenSansSemibold;
+}
+
+
+.card {
+
+  &-payment {
+    padding: 20px 0 15px 0;
+    border-bottom: 1px solid $gray-border;
+    position: relative;
+  }
+
+  &-button {
+    display: flex;
+  }
+
+  &-pointer-btn {
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+
+    &:checked ~.card-label:after {
+      border: 5px solid $orange;
+    }
+
+    &:checked ~.card-label {
+      font-family: OpenSansBold;
+    }
+  }
+
+  &-label {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    margin-left: 35px;
+    cursor: pointer;
+    color: $gray-text;
+    font-family: OpenSans;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 0;
+      display: inline-block;
+      height: 16px;
+      width: 16px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 1px solid $gray-text;
+    }
+  }
+
+
+
+
+  &-data {
+    color: $gray-text;
+    font-family: OpenSans;
+  }
+
+  &-description {
+    margin-bottom: 4px;
+  }
+}
+
+.plan {
+
+  &-type {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.plans-section {
+  margin-top: 40px;
+}

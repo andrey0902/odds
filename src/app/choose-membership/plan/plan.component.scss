@@ -1,0 +1,56 @@
+@import "../../../styles/variables";
+:host {
+  display: block;
+}
+.plan {
+
+  &-wrapper {
+
+  }
+
+  &-title {
+    color: $accent-gray;
+    font-size: 26px;
+    text-align: center;
+    margin: 10px 0 30px 0;
+    font-family: OpenSansSemibold;
+  }
+
+  &-description {
+    color: $gray-text;
+    font-family: OpenSans;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 30px;
+  }
+
+  &-cost-bloc {
+    padding-left: 25px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &-currency {
+    font-family: OpenSans;
+    font-size: 16px;
+    color: $gray-text;
+    position: absolute;
+    top: 0;
+    left: 10px;
+  }
+
+  &-cost-value {
+    font-size: 36px;
+    font-family: OpenSansBold;
+    color: $orange;
+    margin-right: 15px;
+  }
+
+  &-time {
+    line-height: 24px;
+    font-family: OpenSans;
+    color: $gray-text;
+    font-size: 16px;
+  }
+}

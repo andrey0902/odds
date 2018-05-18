@@ -1,3 +1,33 @@
-<p>
-  choose-membership works!
-</p>
+<odds-header></odds-header>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="h1">
+          Choose your membership plan!
+        </h1>
+      </div>
+      <div class="col-12">
+        <div class="plan-type">
+            <div class="card-button">
+              <input type="radio" name="card" (change)="choosePlan('monthly')" [checked]="planeType === 'monthly'" id="monthly" class="card-pointer-btn">
+              <label class="card-label" for="monthly">
+                Monthly
+              </label>
+            </div>
+            <div class="card-button">
+              <input type="radio" name="card" (change)="choosePlan('quarterly')" [checked]="planeType === 'quarterly'" id="quarterly" class="card-pointer-btn">
+              <label class="card-label" for="quarterly">
+                Quarterly
+              </label>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="row plans-section" *ngIf="plans">
+      <div class="col col-md-4" *ngFor="let plan of plans[planeType]">
+        <odds-plan [plan]="plan"></odds-plan>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="plan-wrapper">
+  <mat-card>
+    <mat-card-title>
+      <h2 class="plan-title">
+        {{plan.title}}
+      </h2>
+      <p class="plan-description">
+        {{plan.description}}
+      </p>
+    </mat-card-title>
+    <mat-card-content>
+      <div class="plan-cost-bloc">
+        <div class="plan-currency">
+          {{currency}}
+        </div>
+        <p class="plan-cost-value">
+          {{plan.cost}}
+        </p>
+        <p class="plan-time">
+          / {{plan.time}}
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

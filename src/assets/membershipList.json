@@ -1,0 +1,85 @@
+{
+  "monthly": [
+    {
+      "title": "Silver",
+      "description": "A good place to start - test out the water whilst minimising your risk",
+      "cost": 20,
+      "time": "Month",
+      "functionality": [
+        "Tools to track your bets",
+        "\"The Top Five\" bookies",
+        "Access to the private members group",
+        "Video tutorials"
+      ]
+    },
+    {
+      "title": "Gold",
+      "description": "Best option if you want access to a large volume of good value bets",
+      "cost": 40,
+      "time": "Month",
+      "functionality": [
+        "Everything in Silver",
+        "Up to 20 bookies",
+        "A monthly 1-2-1 call",
+        "Monthly newsletter",
+        "Special edition magazines",
+        "Member meetups"
+      ]
+    }
+  ,
+    {
+      "title": "Platinum",
+      "description": "Our most exclusive service for serious players with a higher bankroll",
+      "cost": 80,
+      "time": "Month",
+      "functionality": [
+        "Everything in Gold",
+        "We will work directly with you to prefect your strategies",
+        "curated odds models"
+      ]
+    }
+  ],
+  "quarterly": [
+    {
+      "title": "Silver",
+      "description": "A good place to start - test out the water whilst minimising your risk",
+      "cost": 45,
+      "save": 15,
+      "time": "Quarterly",
+      "functionality": [
+        "Tools to track your bets",
+        "\"The Top Five\" bookies",
+        "Access to the private members group",
+        "Video tutorials"
+      ]
+    },
+    {
+      "title": "Gold",
+      "description": "Best option if you want access to a large volume of good value bets",
+      "cost": 90,
+      "save": 30,
+      "time": "Quarterly",
+      "functionality": [
+        "Everything in Silver",
+        "Up to 20 bookies",
+        "A monthly 1-2-1 call",
+        "Monthly newsletter",
+        "Special edition magazines",
+        "Member meetups"
+      ]
+    }
+  ,
+    {
+      "title": "Platinum",
+      "description": "Our most exclusive service for serious players with a higher bankroll",
+      "cost": 180,
+      "save": 60,
+      "time": "Quarterly",
+      "functionality": [
+        "Everything in Gold",
+        "We will work directly with you to prefect your strategies",
+        "curated odds models"
+      ]
+    }
+  ]
+}
