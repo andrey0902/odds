@@ -88,6 +88,22 @@ export class AuthCoreService {
     return this.http.put(ConfigService.resetPasswordPath, {password}, {params: this.params(params)});
   }
 
+  public sendGoogleData(params) {
+    return this.http.get(ConfigService.googlePath, {params: this.params(params)})
+      .map(response => {
+        console.log('response', response);
+        return response;
+      });
+  }
+
+  public sendFaceboocData(params) {
+    return this.http.get(ConfigService.facebookPath, {params: this.params(params)})
+      .map(response => {
+        console.log('response', response);
+        return response;
+      });
+  }
+
   public params(filters) {
     if (filters) {
       let params: any = new HttpParams();

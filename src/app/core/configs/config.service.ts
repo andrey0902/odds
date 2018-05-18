@@ -11,4 +11,6 @@ export class ConfigService {
   public static signInPath = `${ConfigService.basePathApi}v1/users/sign_in`;
   public static resetPasswordPath = `${ConfigService.basePathApi}v1/users/password`;
   public static checkedAccessPath = `${ConfigService.basePathApi}v1/users/password/check_reset_token`;
+  public static googlePath = `${ConfigService.basePathApi}v1/users/auth/google_oauth2/callback`;
+  public static facebookPath = `${ConfigService.basePathApi}v1/users/auth/facebook/callback`;
 }

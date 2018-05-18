@@ -22,6 +22,7 @@ export class SignInComponent implements OnInit {
   public signIn: FormGroup;
   public hide = true;
   public serverError = false;
+  public socialType = null;
   constructor(private route: ActivatedRoute,
               private authService: AuthCoreService,
               private fb: FormBuilder,
@@ -88,6 +89,7 @@ export class SignInComponent implements OnInit {
 
   public socialSignIn(socialPlatform: string) {
     let socialPlatformProvider;
+    this.socialType = socialPlatform;
     if (socialPlatform === 'facebook') {
       socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
     } else if (socialPlatform === 'google') {
@@ -98,8 +100,26 @@ export class SignInComponent implements OnInit {
       (userData) => {
         console.log(socialPlatform + ' sign in data : ' , userData);
         // Now sign-in with userData
+        this.sendSocial(this.socialType, {code: userData.token});
       }
     );
+  }
+
+  public sendSocial(socialType: string, data) {
+    switch (socialType) {
+      case 'google':
+        this.authService.sendGoogleData(data)
+          .subscribe(result => {
+            console.log(result);
+          });
+      break;
+      case 'facebook':
+        this.authService.sendFaceboocData(data)
+          .subscribe(result => {
+            console.log(result);
+          });
+        break;
+    }
   }
 
   public getErrorMessage(control: FormControl) {
