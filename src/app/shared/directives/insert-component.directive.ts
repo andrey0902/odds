@@ -13,31 +13,26 @@ export class InsertComponentDirective {
               private componentFactoryResolver: ComponentFactoryResolver) { }
 
   @HostListener('click') public toggleComponent() {
-    console.log('click', this.isInsert);
     if (this.isInsert) {
       this.clear();
-      this.toggleValue(this.isInsert);
+      this.isInsert = true;
     } else {
       this.insert();
-      this.toggleValue(this.isInsert);
+      this.isInsert = false;
     }
   }
 
   public insert() {
     const component: ComponentFactory<any> = this.componentFactoryResolver.resolveComponentFactory(this.component);
 
-    const done = this.viewContainer.createComponent(component);
-    // done.instance.viewContainer = this.viewContainer;
+    const componentIns = this.viewContainer.createComponent(component);
+    componentIns.instance.viewContainer = this.viewContainer;
 
   }
 
 
   public clear() {
     this.viewContainer.clear();
-  }
-
-  private toggleValue(value) {
-    this.isInsert = !value;
   }
 
 }

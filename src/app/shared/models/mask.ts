@@ -12,7 +12,8 @@ export class Mask {
   });
 
   public static CVC = {
-    mask: Mask.CVCnumber,
+    // mask: Mask.CVCnumber,
+    mask: RegExpService.CVC,
     guide: false,
     modelClean: true
   };

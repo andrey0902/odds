@@ -14,6 +14,9 @@ export class RegExpService {
   public static expiration = [
     /^\d/, /\d/, '/', /\d/, /\d/
   ];
+  public static CVC = [
+    /^\d/, /\d/, /\d/, /\d?/,
+  ]
   constructor() { }
 
 }

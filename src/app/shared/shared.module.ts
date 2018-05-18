@@ -7,6 +7,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatCardModule } from '@angular/material';
 import { InfoCardComponent } from './components/info-card/info-card.component';
+import { DirectivesModule } from './directives/directives.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
     RouterModule,
     MatButtonModule,
     MatCardModule,
+    DirectivesModule,
   ],
   declarations: [
     NavigationComponent,

@@ -6,6 +6,10 @@
   background-color: $light-white;
 }
 
+.example-card {
+  margin-top: 20px;
+}
+
 .navigation {
   display: block;
   padding-top: 24px;
@@ -83,6 +87,9 @@
 
   &-label {
     display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
     position: relative;
     margin-left: 35px;
     cursor: pointer;
@@ -103,6 +110,7 @@
 
   &-img {
     min-width: 120px;
+    margin-bottom: 8px;
   }
 
   &-img-view {
@@ -271,4 +279,38 @@ mat-card-actions {
   &:after {
     border: none;
   }
+}
+
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {
+ .card {
+
+   &-label {
+     flex-direction: row;
+     align-items: flex-start;
+   }
+
+   &-img {
+     margin-bottom: 0;
+   }
+ }
+
+
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+  .example-card {
+    margin-top: 0;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }

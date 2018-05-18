@@ -1,24 +1,34 @@
 @import "../../../../styles/variables";
-.wrapper-info {
+:host {
+  display: block;
   position: absolute;
-  width: 450px;
-  top: 17px;
-  left: -200px;
+  top: 510px;
+  left: 10%;
   z-index: 10;
+  width: 250px;
+}
+.wrapper-info {
+
+
 }
 
 .cvc {
 
   &-img {
     padding-top: 15px;
-    width: 70%;
+    width: 80%;
     padding-left: 10px;
+
+    img {
+      max-width: 100%
+    }
   }
 
   &-title, &-text {
     color: $gray-text;
     font-family: OpenSans;
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 16px;
   }
 
   &-text {
@@ -37,6 +47,7 @@
     padding-bottom: 20px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
   }
 }
 
@@ -45,4 +56,35 @@
   &:after {
     border: none;
   }
+}
+
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {
+  :host {
+    top: 445px;
+    width: 450px;
+  }
+
+  .cvc {
+
+    &-information {
+      flex-direction: row;
+    }
+  }
+;
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }
