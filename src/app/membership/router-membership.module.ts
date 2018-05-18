@@ -9,6 +9,9 @@ import { MembershipComponent } from './membership.component';
       component: MembershipComponent
     }])
   ],
+  exports: [
+    RouterModule
+  ],
   declarations: []
 })
 export class RouterMembershipModule { }
