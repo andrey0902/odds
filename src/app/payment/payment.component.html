@@ -2,12 +2,149 @@
 <div class="wrapper">
   <div class="container">
     <div class="row">
-      <div class="col col-md-2 offset-2">
-        <odds-navigation></odds-navigation>
+      <div class="col-12 offset-sm-3 col-sm-6 col-md-4 offset-md-0 col-lg-3 offset-lg-2 col-xl-2">
+        <odds-navigation class="navigation"></odds-navigation>
       </div>
-      <div class="col col-md-5">
+      <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-5">
+        <mat-card class="example-card">
+          <mat-card-header class="card-header">
+            <mat-card-title class="card-title">Payment method</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="content-wrapper">
+              <div class="card-payment" *ngFor="let card of cards; let i= index">
+                  <div class="card-action">
+                    <div class="card-button">
+                      <input type="radio" name="card" (change)="choosePay()" [id]="i" class="card-pointer-btn">
+                      <label class="card-label" [for]="i">
+                        <div class="card-img">
+                          <img src="{{ i == 0 ? '/assets/images/payment/visa.svg' : '/assets/images/payment/paypal.svg'}}"
+                               class="card-img-view" alt="card-view">
+                        </div>
+                        <div class="card-data">
+                          <p class="card-description">
+                            #646-36146514-2545
+                          </p>
+                          <p class="card-description">
+                            #646-36146514-2545
+                          </p>
+                        </div>
+                      </label>
+                    </div>
 
+                  </div>
+                <div class="card-remove">
+                  <button class="closed" (click)="removeCard()"><i class="material-icons">close</i></button>
+                </div>
+              </div>
+              <div class="wrapper-form">
+                <button class="card-add" *ngIf="!addCard; else addForm" (click)="shoveForm()">Added credit or debit card</button>
+              </div>
+
+
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="action">
+              <button mat-button class="btn apply" (click)="save()" >Save</button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #addForm>
+  <form class="profile" #form="ngForm" (ngSubmit)="save(formCard)" [formGroup]="formCard">
+    <div class="main-title">
+      <p>
+        Credit or debit card details
+      </p>
+    </div>
+    <div class="profile-name group">
+      <p class="simple-tile group-label">
+        Name on card
+      </p>
+      <div class="group-field">
+        <!--<input type="text" class="group-input">-->
+        <odds-input formControlName="name"></odds-input>
+      </div>
+    </div>
+    <div class="profile-name group">
+      <p class="simple-tile group-label">
+        Card number
+      </p>
+      <div class="group-field">
+        <!--<input type="text" class="group-input">-->
+        <odds-input formControlName="number" [textMask]="textMaskNumber" [placeholder]="'0000 0000 0000 0000'"></odds-input>
+      </div>
+    </div>
+    <div class="group-form-field">
+      <div class="field-state">
+        <div class="profile-name group">
+          <p class="simple-tile group-label">
+            Expiration
+          </p>
+          <div class="group-field">
+            <odds-input formControlName="expiration" [textMask]="textMaskExpiration" [placeholder]="'MM/YY'"></odds-input>
+          </div>
+        </div>
+      </div>
+      <div class="field-zip">
+        <div class="profile-name group">
+          <p class="simple-tile group-label">
+            CVC/CVV
+            <span class="card-info" (click)="openInfo()" oddsInsertComponent [component]="infoComponent">
+              <img src="/assets/images/payment/info.svg" alt="info">
+              <!--<div class="wrapper-info">-->
+                <!--<mat-card>-->
+                   <!--<mat-card-header class="card-header no-line">-->
+                      <!--<mat-card-title class="cvc-title">-->
+                      <!--Your card code is a 3 or 4 digit number that is found in these locations:-->
+                      <!--</mat-card-title>-->
+                   <!--</mat-card-header>-->
+                   <!--<mat-card-content>-->
+                     <!--<div class="cvc-information">-->
+                       <!--<div class="cvc-description">-->
+                        <!--<div class="cvc-card-title">-->
+                          <!--Visa/ Mastercard-->
+                        <!--</div>-->
+                        <!--<div class="cvc-text">-->
+                          <!--The security code is a 3 digit number on the-->
+                          <!--back of your credit card. It immediately-->
+                          <!--follows your main card number.-->
+                        <!--</div>-->
+                       <!--</div>-->
+                       <!--<div class="cvc-img">-->
+                         <!--<img src="/assets/images/payment/card-0.png" alt="card-0">-->
+                       <!--</div>-->
+                     <!--</div>-->
+                                <!--<div class="cvc-information">-->
+                       <!--<div class="cvc-description">-->
+                        <!--<div class="cvc-card-title">-->
+                          <!--American express-->
+                        <!--</div>-->
+                        <!--<div class="cvc-text">-->
+                          <!--The security code is a 4 digit number on-->
+                          <!--the front of your card? just above and to-->
+                          <!--the right of your main card number.-->
+                        <!--</div>-->
+                       <!--</div>-->
+                       <!--<div class="cvc-img">-->
+                         <!--<img src="/assets/images/payment/card-1.png" alt="card-0">-->
+                       <!--</div>-->
+                     <!--</div>-->
+                   <!--</mat-card-content>-->
+                <!--</mat-card>-->
+              <!--</div>-->
+            </span>
+          </p>
+          <div class="group-field">
+            <odds-input formControlName="cvs" [textMask]="maskCVC"></odds-input>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</ng-template>

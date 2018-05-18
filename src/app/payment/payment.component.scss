@@ -1,5 +1,316 @@
 @import "../../styles/variables";
 
 .wrapper {
-  margin-top: 100px;
+  padding-top: 60px;
+  min-height: calc(100vh - 50px);
+  background-color: $light-white;
+}
+
+.example-card {
+  margin-top: 20px;
+}
+
+.navigation {
+  display: block;
+  padding-top: 24px;
+}
+
+.main-title {
+  color: $accent-gray;
+  font-family: OpenSansSemibold;
+  font-size: 18px;
+  padding: 20px 0  ;
+}
+
+.card {
+
+  &-title {
+    color: $accent-gray;
+    font-family: OpenSansSemibold;
+    font-size: 24px;
+  }
+
+  &-header {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: -24px;
+      left: -24px;
+      border-bottom: 1px solid $gray-border;
+    }
+  }
+
+  &-info {
+    width: 13px;
+    margin-top: -4px;
+    height: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.card {
+
+  &-action {
+    padding-right: 30px;
+  }
+
+  &-payment {
+    padding: 20px 0 15px 0;
+    border-bottom: 1px solid $gray-border;
+    position: relative;
+  }
+
+  &-button {
+    display: flex;
+  }
+
+  &-pointer-btn {
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+
+    &:checked ~.card-label:after {
+      border: 5px solid $orange;
+    }
+  }
+
+  &-label {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    margin-left: 35px;
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: -30px;
+      top: 0;
+      display: inline-block;
+      height: 16px;
+      width: 16px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 1px solid $gray-text;
+    }
+  }
+
+  &-img {
+    min-width: 120px;
+    margin-bottom: 8px;
+  }
+
+  &-img-view {
+    object-fit: contain;
+    height: 23px;
+    max-width: 100%;
+  }
+
+  &-data {
+    color: $gray-text;
+    font-family: OpenSans;
+  }
+
+  &-description {
+    margin-bottom: 4px;
+  }
+
+  &-remove {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    cursor: pointer;
+  }
+
+  &-add {
+    font-family: OpenSansBold;
+    color: $orange;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+
+.closed {
+  border: none;
+  background-color: transparent;
+  color: $gray-text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+mat-card-actions {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -8px;
+    left: -8px;
+    border-bottom: 1px solid $gray-border;/*#ecebee*/
+  }
+}
+
+.apply {
+  background-color: $orange;
+  color: #fff;
+  font-family: OpenSansBold;
+}
+
+.simple {
+
+  &-tile {
+    padding-top: 15px;
+    color: $gray-title;
+    font-family: OpenSansBold;
+    font-size: 15px;
+    text-align: left;
+  }
+}
+
+.group {
+
+  &-label {
+    padding-top: 5px;
+  }
+
+
+  &-field {
+    position: relative;
+    margin-top: 10px;
+  }
+
+  &-input {
+    padding:10px 10px 10px 20px;
+    border: 1px solid $gray-border;
+    border-radius: 4px;
+    width: 100%;
+    font-family: OpenSans;
+    color: $gray-text;
+    font-size: 14px;
+
+    &:focus {
+      border-color: $orange;
+      outline: none;
+    }
+  }
+
+  &-form-field {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.wrapper-info {
+  position: absolute;
+  width: 450px;
+  top: 17px;
+  left: -200px;
+  z-index: 10;
+}
+
+.cvc {
+
+  &-img {
+    padding-top: 15px;
+    width: 70%;
+    padding-left: 10px;
+  }
+
+  &-title, &-text {
+    color: $gray-text;
+    font-family: OpenSans;
+    font-size: 14px;
+  }
+
+  &-text {
+    padding-top: 10px;
+  }
+
+  &-card-title {
+    padding-top: 15px;
+    color: $gray-title;
+    font-family: OpenSansBold;
+    font-size: 15px;
+    text-align: left;
+  }
+
+  &-information {
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.no-line {
+
+  &:after {
+    border: none;
+  }
+}
+
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {
+ .card {
+
+   &-label {
+     flex-direction: row;
+     align-items: flex-start;
+   }
+
+   &-img {
+     margin-bottom: 0;
+   }
+ }
+
+
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {
+  .example-card {
+    margin-top: 0;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }

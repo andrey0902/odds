@@ -15,6 +15,8 @@ export const INPUT_VALUE_ACCESSOR: any = {
 })
 export class InputComponent implements OnInit, ControlValueAccessor, AfterViewInit {
   @Input() public style;
+  @Input() public placeholder;
+  @Input() public textMask;
   @ViewChild('simpleInput') public simpleInput: ElementRef;
   ngControl: NgControl;
   public disabled: boolean;
