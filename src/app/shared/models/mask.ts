@@ -1,17 +1,28 @@
 import { createNumberMask } from 'text-mask-addons/dist/textMaskAddons';
+import { RegExpService } from '../services/reg-exp.service';
 
 export class Mask {
 
-  public static amountMaskFnc = createNumberMask({
-    allowDecimal: true,
+  public static CVCnumber = createNumberMask( {
+    allowDecimal: false,
     thousandsSeparatorSymbol: '',
     prefix: '',
-    suffix: ''
+    suffix: '',
+    allowNegative: false
   });
 
-  public static numberDecimal = {
-    mask: Mask.amountMaskFnc,
+  public static CVC = {
+    // mask: Mask.CVCnumber,
+    mask: RegExpService.CVC,
     guide: false,
     modelClean: true
+  };
+
+  public static cardNumber = {
+    mask: RegExpService.cardNumber
+  };
+
+  public static expiration = {
+    mask: RegExpService.expiration
   };
 }
